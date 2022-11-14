@@ -13,7 +13,7 @@
 #include <cstring>
 using namespace std;
 
-class TDAArchivo : public Object {
+class TDAArchivo {
     
 private:
     char* data;
