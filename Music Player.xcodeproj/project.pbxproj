@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		81739A0F2922FA3B00AE39BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A0E2922FA3B00AE39BB /* main.cpp */; };
+		81739A172922FAB400AE39BB /* TDAArchivo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A152922FAB400AE39BB /* TDAArchivo.cpp */; };
+		81739A1A2922FC3000AE39BB /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A182922FC3000AE39BB /* Object.cpp */; };
+		81739A202923003B00AE39BB /* Genero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A1E2923003B00AE39BB /* Genero.cpp */; };
+		81739A23292301ED00AE39BB /* PlayListFileF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A21292301ED00AE39BB /* PlayListFileF.cpp */; };
+		81739A292923021B00AE39BB /* PlayListFileV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A272923021B00AE39BB /* PlayListFileV.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		81739A092922FA3B00AE39BB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		81739A0B2922FA3B00AE39BB /* Music Player */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Music Player"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81739A0E2922FA3B00AE39BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		81739A152922FAB400AE39BB /* TDAArchivo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TDAArchivo.cpp; sourceTree = "<group>"; };
+		81739A162922FAB400AE39BB /* TDAArchivo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TDAArchivo.hpp; sourceTree = "<group>"; };
+		81739A182922FC3000AE39BB /* Object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
+		81739A192922FC3000AE39BB /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
+		81739A1E2923003B00AE39BB /* Genero.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Genero.cpp; sourceTree = "<group>"; };
+		81739A1F2923003B00AE39BB /* Genero.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Genero.hpp; sourceTree = "<group>"; };
+		81739A21292301ED00AE39BB /* PlayListFileF.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayListFileF.cpp; sourceTree = "<group>"; };
+		81739A22292301ED00AE39BB /* PlayListFileF.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayListFileF.hpp; sourceTree = "<group>"; };
+		81739A272923021B00AE39BB /* PlayListFileV.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayListFileV.cpp; sourceTree = "<group>"; };
+		81739A282923021B00AE39BB /* PlayListFileV.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayListFileV.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81739A082922FA3B00AE39BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		81739A022922FA3B00AE39BB = {
+			isa = PBXGroup;
+			children = (
+				81739A0D2922FA3B00AE39BB /* Music Player */,
+				81739A0C2922FA3B00AE39BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		81739A0C2922FA3B00AE39BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81739A0B2922FA3B00AE39BB /* Music Player */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81739A0D2922FA3B00AE39BB /* Music Player */ = {
+			isa = PBXGroup;
+			children = (
+				81739A0E2922FA3B00AE39BB /* main.cpp */,
+				81739A152922FAB400AE39BB /* TDAArchivo.cpp */,
+				81739A162922FAB400AE39BB /* TDAArchivo.hpp */,
+				81739A182922FC3000AE39BB /* Object.cpp */,
+				81739A192922FC3000AE39BB /* Object.hpp */,
+				81739A1E2923003B00AE39BB /* Genero.cpp */,
+				81739A1F2923003B00AE39BB /* Genero.hpp */,
+				81739A21292301ED00AE39BB /* PlayListFileF.cpp */,
+				81739A22292301ED00AE39BB /* PlayListFileF.hpp */,
+				81739A272923021B00AE39BB /* PlayListFileV.cpp */,
+				81739A282923021B00AE39BB /* PlayListFileV.hpp */,
+			);
+			path = "Music Player";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81739A0A2922FA3B00AE39BB /* Music Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81739A122922FA3B00AE39BB /* Build configuration list for PBXNativeTarget "Music Player" */;
+			buildPhases = (
+				81739A072922FA3B00AE39BB /* Sources */,
+				81739A082922FA3B00AE39BB /* Frameworks */,
+				81739A092922FA3B00AE39BB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Music Player";
+			productName = "Music Player";
+			productReference = 81739A0B2922FA3B00AE39BB /* Music Player */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81739A032922FA3B00AE39BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					81739A0A2922FA3B00AE39BB = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 81739A062922FA3B00AE39BB /* Build configuration list for PBXProject "Music Player" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81739A022922FA3B00AE39BB;
+			productRefGroup = 81739A0C2922FA3B00AE39BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81739A0A2922FA3B00AE39BB /* Music Player */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81739A072922FA3B00AE39BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81739A202923003B00AE39BB /* Genero.cpp in Sources */,
+				81739A23292301ED00AE39BB /* PlayListFileF.cpp in Sources */,
+				81739A172922FAB400AE39BB /* TDAArchivo.cpp in Sources */,
+				81739A0F2922FA3B00AE39BB /* main.cpp in Sources */,
+				81739A292923021B00AE39BB /* PlayListFileV.cpp in Sources */,
+				81739A1A2922FC3000AE39BB /* Object.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		81739A102922FA3B00AE39BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		81739A112922FA3B00AE39BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		81739A132922FA3B00AE39BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		81739A142922FA3B00AE39BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81739A062922FA3B00AE39BB /* Build configuration list for PBXProject "Music Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81739A102922FA3B00AE39BB /* Debug */,
+				81739A112922FA3B00AE39BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81739A122922FA3B00AE39BB /* Build configuration list for PBXNativeTarget "Music Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81739A132922FA3B00AE39BB /* Debug */,
+				81739A142922FA3B00AE39BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 81739A032922FA3B00AE39BB /* Project object */;
+}
