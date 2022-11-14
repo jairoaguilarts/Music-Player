@@ -8,12 +8,12 @@
 #ifndef PlayListFileV_hpp
 #define PlayListFileV_hpp
 
-#include "Object.hpp"
+#include "TDAArchivo.hpp"
 #include <iostream>
 #include <cstring>
 using namespace std;
 
-class PlayListFile : public Object {
+class PlayListFile : public TDAArchivo {
     
 public:
     PlayListFile();
