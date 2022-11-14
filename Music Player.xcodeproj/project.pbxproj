@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		81739A0F2922FA3B00AE39BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A0E2922FA3B00AE39BB /* main.cpp */; };
 		81739A172922FAB400AE39BB /* TDAArchivo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A152922FAB400AE39BB /* TDAArchivo.cpp */; };
-		81739A1A2922FC3000AE39BB /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A182922FC3000AE39BB /* Object.cpp */; };
 		81739A202923003B00AE39BB /* Genero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A1E2923003B00AE39BB /* Genero.cpp */; };
 		81739A23292301ED00AE39BB /* PlayListFileF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A21292301ED00AE39BB /* PlayListFileF.cpp */; };
 		81739A292923021B00AE39BB /* PlayListFileV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A272923021B00AE39BB /* PlayListFileV.cpp */; };
+		81739A31292305B800AE39BB /* ArrayList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A2F292305B800AE39BB /* ArrayList.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +32,6 @@
 		81739A0E2922FA3B00AE39BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		81739A152922FAB400AE39BB /* TDAArchivo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TDAArchivo.cpp; sourceTree = "<group>"; };
 		81739A162922FAB400AE39BB /* TDAArchivo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TDAArchivo.hpp; sourceTree = "<group>"; };
-		81739A182922FC3000AE39BB /* Object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
 		81739A192922FC3000AE39BB /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
 		81739A1E2923003B00AE39BB /* Genero.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Genero.cpp; sourceTree = "<group>"; };
 		81739A1F2923003B00AE39BB /* Genero.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Genero.hpp; sourceTree = "<group>"; };
@@ -41,6 +40,8 @@
 		81739A272923021B00AE39BB /* PlayListFileV.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayListFileV.cpp; sourceTree = "<group>"; };
 		81739A282923021B00AE39BB /* PlayListFileV.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayListFileV.hpp; sourceTree = "<group>"; };
 		81739A2B2923041E00AE39BB /* TDALista.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TDALista.hpp; sourceTree = "<group>"; };
+		81739A2F292305B800AE39BB /* ArrayList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ArrayList.cpp; sourceTree = "<group>"; };
+		81739A30292305B800AE39BB /* ArrayList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ArrayList.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +83,13 @@
 		81739A2D292304EC00AE39BB /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				81739A162922FAB400AE39BB /* TDAArchivo.hpp */,
 				81739A192922FC3000AE39BB /* Object.hpp */,
+				81739A162922FAB400AE39BB /* TDAArchivo.hpp */,
+				81739A2B2923041E00AE39BB /* TDALista.hpp */,
+				81739A30292305B800AE39BB /* ArrayList.hpp */,
 				81739A1F2923003B00AE39BB /* Genero.hpp */,
 				81739A22292301ED00AE39BB /* PlayListFileF.hpp */,
 				81739A282923021B00AE39BB /* PlayListFileV.hpp */,
-				81739A2B2923041E00AE39BB /* TDALista.hpp */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -95,12 +97,12 @@
 		81739A2E292304F500AE39BB /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
-				81739A0E2922FA3B00AE39BB /* main.cpp */,
 				81739A152922FAB400AE39BB /* TDAArchivo.cpp */,
-				81739A182922FC3000AE39BB /* Object.cpp */,
+				81739A2F292305B800AE39BB /* ArrayList.cpp */,
 				81739A1E2923003B00AE39BB /* Genero.cpp */,
 				81739A21292301ED00AE39BB /* PlayListFileF.cpp */,
 				81739A272923021B00AE39BB /* PlayListFileV.cpp */,
+				81739A0E2922FA3B00AE39BB /* main.cpp */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -166,8 +168,8 @@
 				81739A23292301ED00AE39BB /* PlayListFileF.cpp in Sources */,
 				81739A172922FAB400AE39BB /* TDAArchivo.cpp in Sources */,
 				81739A0F2922FA3B00AE39BB /* main.cpp in Sources */,
+				81739A31292305B800AE39BB /* ArrayList.cpp in Sources */,
 				81739A292923021B00AE39BB /* PlayListFileV.cpp in Sources */,
-				81739A1A2922FC3000AE39BB /* Object.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
