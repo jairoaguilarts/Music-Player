@@ -40,6 +40,7 @@
 		81739A22292301ED00AE39BB /* PlayListFileF.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayListFileF.hpp; sourceTree = "<group>"; };
 		81739A272923021B00AE39BB /* PlayListFileV.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayListFileV.cpp; sourceTree = "<group>"; };
 		81739A282923021B00AE39BB /* PlayListFileV.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayListFileV.hpp; sourceTree = "<group>"; };
+		81739A2B2923041E00AE39BB /* TDALista.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TDALista.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,19 +73,36 @@
 		81739A0D2922FA3B00AE39BB /* Music Player */ = {
 			isa = PBXGroup;
 			children = (
-				81739A0E2922FA3B00AE39BB /* main.cpp */,
-				81739A152922FAB400AE39BB /* TDAArchivo.cpp */,
-				81739A162922FAB400AE39BB /* TDAArchivo.hpp */,
-				81739A182922FC3000AE39BB /* Object.cpp */,
-				81739A192922FC3000AE39BB /* Object.hpp */,
-				81739A1E2923003B00AE39BB /* Genero.cpp */,
-				81739A1F2923003B00AE39BB /* Genero.hpp */,
-				81739A21292301ED00AE39BB /* PlayListFileF.cpp */,
-				81739A22292301ED00AE39BB /* PlayListFileF.hpp */,
-				81739A272923021B00AE39BB /* PlayListFileV.cpp */,
-				81739A282923021B00AE39BB /* PlayListFileV.hpp */,
+				81739A2E292304F500AE39BB /* Implementations */,
+				81739A2D292304EC00AE39BB /* Headers */,
 			);
 			path = "Music Player";
+			sourceTree = "<group>";
+		};
+		81739A2D292304EC00AE39BB /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				81739A162922FAB400AE39BB /* TDAArchivo.hpp */,
+				81739A192922FC3000AE39BB /* Object.hpp */,
+				81739A1F2923003B00AE39BB /* Genero.hpp */,
+				81739A22292301ED00AE39BB /* PlayListFileF.hpp */,
+				81739A282923021B00AE39BB /* PlayListFileV.hpp */,
+				81739A2B2923041E00AE39BB /* TDALista.hpp */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		81739A2E292304F500AE39BB /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				81739A0E2922FA3B00AE39BB /* main.cpp */,
+				81739A152922FAB400AE39BB /* TDAArchivo.cpp */,
+				81739A182922FC3000AE39BB /* Object.cpp */,
+				81739A1E2923003B00AE39BB /* Genero.cpp */,
+				81739A21292301ED00AE39BB /* PlayListFileF.cpp */,
+				81739A272923021B00AE39BB /* PlayListFileV.cpp */,
+			);
+			path = Implementations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
