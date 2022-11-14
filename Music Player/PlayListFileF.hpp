@@ -13,11 +13,11 @@
 #include <cstring>
 using namespace std;
 
-class PlayListFile : public TDAArchivo {
+class PlayListFileF : public TDAArchivo {
     
 public:
-    PlayListFile();
-    ~PlayListFile();
+    PlayListFileF();
+    ~PlayListFileF();
     string leer();
     void escribir();
     bool equals(Object*);
