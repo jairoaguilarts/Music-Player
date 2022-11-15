@@ -8,8 +8,8 @@
 #ifndef Genero_hpp
 #define Genero_hpp
 
-#include <iostream>
 #include "Object.hpp"
+#include <iostream>
 using namespace std;
 
 class Genero : public Object {
@@ -18,8 +18,10 @@ private:
     string nombre;
     
 public:
+    Genero(string);
+    ~Genero();
+    void setNombre(string);
     string getNombre();
-    void setNombre(string nombre);
     bool equals(Object*);
     string toString();
     

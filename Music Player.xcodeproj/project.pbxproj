@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8134E6AD2923359600B11356 /* SongInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8134E6AB2923359600B11356 /* SongInfo.cpp */; };
+		8134E6B02923394D00B11356 /* SongInfoFileF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8134E6AE2923394D00B11356 /* SongInfoFileF.cpp */; };
+		8134E6B32923395B00B11356 /* SongInfoFileV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8134E6B12923395B00B11356 /* SongInfoFileV.cpp */; };
+		8134E6B629233B9500B11356 /* Genero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8134E6B429233B9500B11356 /* Genero.cpp */; };
+		8134E6B929233C8900B11356 /* GeneroFileF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8134E6B729233C8900B11356 /* GeneroFileF.cpp */; };
+		8134E6BC29233C9400B11356 /* GeneroFileV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8134E6BA29233C9400B11356 /* GeneroFileV.cpp */; };
 		81739A0F2922FA3B00AE39BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A0E2922FA3B00AE39BB /* main.cpp */; };
 		81739A172922FAB400AE39BB /* TDAArchivo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A152922FAB400AE39BB /* TDAArchivo.cpp */; };
-		81739A202923003B00AE39BB /* Genero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A1E2923003B00AE39BB /* Genero.cpp */; };
 		81739A23292301ED00AE39BB /* PlayListFileF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A21292301ED00AE39BB /* PlayListFileF.cpp */; };
 		81739A292923021B00AE39BB /* PlayListFileV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A272923021B00AE39BB /* PlayListFileV.cpp */; };
 		81739A31292305B800AE39BB /* ArrayList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81739A2F292305B800AE39BB /* ArrayList.cpp */; };
@@ -28,13 +33,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8134E6AB2923359600B11356 /* SongInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SongInfo.cpp; sourceTree = "<group>"; };
+		8134E6AC2923359600B11356 /* SongInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SongInfo.hpp; sourceTree = "<group>"; };
+		8134E6AE2923394D00B11356 /* SongInfoFileF.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SongInfoFileF.cpp; sourceTree = "<group>"; };
+		8134E6AF2923394D00B11356 /* SongInfoFileF.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SongInfoFileF.hpp; sourceTree = "<group>"; };
+		8134E6B12923395B00B11356 /* SongInfoFileV.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SongInfoFileV.cpp; sourceTree = "<group>"; };
+		8134E6B22923395B00B11356 /* SongInfoFileV.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SongInfoFileV.hpp; sourceTree = "<group>"; };
+		8134E6B429233B9500B11356 /* Genero.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Genero.cpp; sourceTree = "<group>"; };
+		8134E6B529233B9500B11356 /* Genero.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Genero.hpp; sourceTree = "<group>"; };
+		8134E6B729233C8900B11356 /* GeneroFileF.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GeneroFileF.cpp; sourceTree = "<group>"; };
+		8134E6B829233C8900B11356 /* GeneroFileF.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GeneroFileF.hpp; sourceTree = "<group>"; };
+		8134E6BA29233C9400B11356 /* GeneroFileV.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GeneroFileV.cpp; sourceTree = "<group>"; };
+		8134E6BB29233C9400B11356 /* GeneroFileV.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GeneroFileV.hpp; sourceTree = "<group>"; };
 		81739A0B2922FA3B00AE39BB /* Music Player */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Music Player"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81739A0E2922FA3B00AE39BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		81739A152922FAB400AE39BB /* TDAArchivo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TDAArchivo.cpp; sourceTree = "<group>"; };
 		81739A162922FAB400AE39BB /* TDAArchivo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TDAArchivo.hpp; sourceTree = "<group>"; };
 		81739A192922FC3000AE39BB /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
-		81739A1E2923003B00AE39BB /* Genero.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Genero.cpp; sourceTree = "<group>"; };
-		81739A1F2923003B00AE39BB /* Genero.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Genero.hpp; sourceTree = "<group>"; };
 		81739A21292301ED00AE39BB /* PlayListFileF.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayListFileF.cpp; sourceTree = "<group>"; };
 		81739A22292301ED00AE39BB /* PlayListFileF.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlayListFileF.hpp; sourceTree = "<group>"; };
 		81739A272923021B00AE39BB /* PlayListFileV.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayListFileV.cpp; sourceTree = "<group>"; };
@@ -87,9 +102,14 @@
 				81739A162922FAB400AE39BB /* TDAArchivo.hpp */,
 				81739A2B2923041E00AE39BB /* TDALista.hpp */,
 				81739A30292305B800AE39BB /* ArrayList.hpp */,
-				81739A1F2923003B00AE39BB /* Genero.hpp */,
+				8134E6AC2923359600B11356 /* SongInfo.hpp */,
 				81739A22292301ED00AE39BB /* PlayListFileF.hpp */,
 				81739A282923021B00AE39BB /* PlayListFileV.hpp */,
+				8134E6AF2923394D00B11356 /* SongInfoFileF.hpp */,
+				8134E6B22923395B00B11356 /* SongInfoFileV.hpp */,
+				8134E6B529233B9500B11356 /* Genero.hpp */,
+				8134E6B829233C8900B11356 /* GeneroFileF.hpp */,
+				8134E6BB29233C9400B11356 /* GeneroFileV.hpp */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -99,9 +119,14 @@
 			children = (
 				81739A152922FAB400AE39BB /* TDAArchivo.cpp */,
 				81739A2F292305B800AE39BB /* ArrayList.cpp */,
-				81739A1E2923003B00AE39BB /* Genero.cpp */,
+				8134E6AB2923359600B11356 /* SongInfo.cpp */,
 				81739A21292301ED00AE39BB /* PlayListFileF.cpp */,
 				81739A272923021B00AE39BB /* PlayListFileV.cpp */,
+				8134E6AE2923394D00B11356 /* SongInfoFileF.cpp */,
+				8134E6B12923395B00B11356 /* SongInfoFileV.cpp */,
+				8134E6B429233B9500B11356 /* Genero.cpp */,
+				8134E6B729233C8900B11356 /* GeneroFileF.cpp */,
+				8134E6BA29233C9400B11356 /* GeneroFileV.cpp */,
 				81739A0E2922FA3B00AE39BB /* main.cpp */,
 			);
 			path = Implementations;
@@ -164,12 +189,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81739A202923003B00AE39BB /* Genero.cpp in Sources */,
+				8134E6B929233C8900B11356 /* GeneroFileF.cpp in Sources */,
+				8134E6B02923394D00B11356 /* SongInfoFileF.cpp in Sources */,
 				81739A23292301ED00AE39BB /* PlayListFileF.cpp in Sources */,
+				8134E6AD2923359600B11356 /* SongInfo.cpp in Sources */,
+				8134E6B32923395B00B11356 /* SongInfoFileV.cpp in Sources */,
 				81739A172922FAB400AE39BB /* TDAArchivo.cpp in Sources */,
 				81739A0F2922FA3B00AE39BB /* main.cpp in Sources */,
+				8134E6BC29233C9400B11356 /* GeneroFileV.cpp in Sources */,
 				81739A31292305B800AE39BB /* ArrayList.cpp in Sources */,
 				81739A292923021B00AE39BB /* PlayListFileV.cpp in Sources */,
+				8134E6B629233B9500B11356 /* Genero.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

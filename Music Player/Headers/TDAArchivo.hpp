@@ -29,6 +29,10 @@ public:
     int getSize();
     void setFileName();
     string getFileName();
+    void cerrar();
+    void abrir();
+    virtual void escribir() = 0;
+    virtual void leer() = 0;
     bool equals(Object*);
     string toString();
     

@@ -9,19 +9,24 @@
 #define PlayListFileF_hpp
 
 #include "TDAArchivo.hpp"
+#include "ArrayList.hpp"
+#include "SongInfo.hpp"
 #include <iostream>
 #include <cstring>
 using namespace std;
 
 class PlayListFileF : public TDAArchivo {
     
+private:
+    ArrayList canciones;
+    
 public:
     PlayListFileF();
     ~PlayListFileF();
-    string leer();
+    void setCanciones(ArrayList);
+    ArrayList getCanciones();
+    void leer();
     void escribir();
-    bool equals(Object*);
-    string toString();
     
 };
 
