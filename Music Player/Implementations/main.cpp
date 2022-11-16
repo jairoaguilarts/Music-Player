@@ -17,7 +17,6 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    
     Object* item = new Genero("Pop");
     cout << item->toString() << endl;
     return 0;

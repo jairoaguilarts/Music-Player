@@ -15,7 +15,7 @@ using namespace std;
 class SongInfo : public Object {
     
 private:
-    string nombre, disco, artista, rutamp3;
+    string nombre, disco, artista, ruta;
     
 public:
     SongInfo(string,string,string,string);
