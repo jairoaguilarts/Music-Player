@@ -23,7 +23,7 @@ public:
     void setNombre(string);
     string getNombre();
     bool equals(Object*);
-    string toString();
+    string toString(); 
     
 };
 
