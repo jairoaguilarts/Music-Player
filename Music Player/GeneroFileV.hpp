@@ -1,31 +1,31 @@
 //
-//  GeneroFileF.hpp
+//  GeneroFileV.hpp
 //  Music Player
 //
 //  Created by Jairo Aguilar on 14/11/22.
 //
 
-#ifndef GeneroFileF_hpp
-#define GeneroFileF_hpp
+#ifndef GeneroFileV_hpp
+#define GeneroFileV_hpp
 
 #include "TDAArchivo.hpp"
 #include "ArrayList.hpp"
 #include <iostream>
 using namespace std;
 
-class GeneroFileF : public TDAArchivo {
+class GeneroFileV : public TDAArchivo {
     
 private:
     ArrayList generos;
     
 public:
-    GeneroFileF();
-    ~GeneroFileF();
+    GeneroFileV();
+    ~GeneroFileV();
     void setGeneros(ArrayList);
     ArrayList getGeneros();
-    void leer();
-    void escribir();
+    virtual bool leer();
+    virtual bool escribir();
     
 };
 
-#endif /* GeneroFileF_hpp */
+#endif /* GeneroFileV_hpp */

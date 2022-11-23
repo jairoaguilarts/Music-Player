@@ -89,47 +89,31 @@
 		81739A0D2922FA3B00AE39BB /* Music Player */ = {
 			isa = PBXGroup;
 			children = (
-				81739A2E292304F500AE39BB /* Implementations */,
-				81739A2D292304EC00AE39BB /* Headers */,
-			);
-			path = "Music Player";
-			sourceTree = "<group>";
-		};
-		81739A2D292304EC00AE39BB /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				81739A192922FC3000AE39BB /* Object.hpp */,
-				81739A162922FAB400AE39BB /* TDAArchivo.hpp */,
 				81739A2B2923041E00AE39BB /* TDALista.hpp */,
-				81739A30292305B800AE39BB /* ArrayList.hpp */,
-				8134E6AC2923359600B11356 /* SongInfo.hpp */,
-				81739A22292301ED00AE39BB /* PlayListFileF.hpp */,
-				81739A282923021B00AE39BB /* PlayListFileV.hpp */,
-				8134E6AF2923394D00B11356 /* SongInfoFileF.hpp */,
-				8134E6B22923395B00B11356 /* SongInfoFileV.hpp */,
-				8134E6B529233B9500B11356 /* Genero.hpp */,
-				8134E6B829233C8900B11356 /* GeneroFileF.hpp */,
-				8134E6BB29233C9400B11356 /* GeneroFileV.hpp */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		81739A2E292304F500AE39BB /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
+				81739A162922FAB400AE39BB /* TDAArchivo.hpp */,
 				81739A152922FAB400AE39BB /* TDAArchivo.cpp */,
+				81739A30292305B800AE39BB /* ArrayList.hpp */,
 				81739A2F292305B800AE39BB /* ArrayList.cpp */,
+				8134E6AC2923359600B11356 /* SongInfo.hpp */,
 				8134E6AB2923359600B11356 /* SongInfo.cpp */,
+				81739A22292301ED00AE39BB /* PlayListFileF.hpp */,
 				81739A21292301ED00AE39BB /* PlayListFileF.cpp */,
+				81739A282923021B00AE39BB /* PlayListFileV.hpp */,
 				81739A272923021B00AE39BB /* PlayListFileV.cpp */,
+				8134E6AF2923394D00B11356 /* SongInfoFileF.hpp */,
 				8134E6AE2923394D00B11356 /* SongInfoFileF.cpp */,
+				8134E6B22923395B00B11356 /* SongInfoFileV.hpp */,
 				8134E6B12923395B00B11356 /* SongInfoFileV.cpp */,
+				81739A192922FC3000AE39BB /* Object.hpp */,
+				8134E6B529233B9500B11356 /* Genero.hpp */,
 				8134E6B429233B9500B11356 /* Genero.cpp */,
+				8134E6B829233C8900B11356 /* GeneroFileF.hpp */,
 				8134E6B729233C8900B11356 /* GeneroFileF.cpp */,
+				8134E6BB29233C9400B11356 /* GeneroFileV.hpp */,
 				8134E6BA29233C9400B11356 /* GeneroFileV.cpp */,
 				81739A0E2922FA3B00AE39BB /* main.cpp */,
 			);
-			path = Implementations;
+			path = "Music Player";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

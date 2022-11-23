@@ -15,7 +15,7 @@ using namespace std;
 
 class TDAArchivo {
     
-private:
+protected:
     char* data;
     int size;
     string fileName;
@@ -32,9 +32,9 @@ public:
     void setFileName(string);
     string getFileName();
     void cerrar();
-    void abrir();
-    virtual void escribir() = 0;
-    virtual void leer() = 0;
+    bool abrir();
+    virtual bool escribir() = 0;
+    virtual bool leer() = 0;
     
 };
 

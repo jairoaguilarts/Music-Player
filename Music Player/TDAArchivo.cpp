@@ -20,10 +20,10 @@ TDAArchivo::TDAArchivo(string fileName) {
 }
 
 TDAArchivo::~TDAArchivo() {
-    if (data) {
+    if (data) { //Libera la memoria de los datos
         delete data;
     }
-    if(file) {
+    if(file) { //Libera la memoria del archivo
         delete file;
     }
 }
@@ -52,12 +52,13 @@ string TDAArchivo::getFileName() {
     return fileName;
 }
 
-void TDAArchivo::abrir() {
-    this->file = new fstream(fileName, ios::in | ios::out);
+bool TDAArchivo::abrir() {
+    this->file = new fstream(fileName, ios::out | ios::in); //Instancia el archivo
+    return this->file->is_open();
 }
 
 void TDAArchivo::cerrar() {
-    if(file->is_open()) {
+    if(file->is_open()) { //Valida si el archivo esta abierto
         file->close();
     }
 }

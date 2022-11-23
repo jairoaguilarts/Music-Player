@@ -15,7 +15,7 @@ using namespace std;
 class Genero : public Object {
     
 private:
-    string nombre;
+    string nombre; //Limitado a 20 bytes
     
 public:
     Genero(string);

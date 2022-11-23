@@ -13,11 +13,13 @@
 #include "PlayListFileV.hpp"
 #include "SongInfoFileF.hpp"
 #include "SongInfoFileV.hpp"
+#include <fstream>
 #include <iostream>
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    Object* item = new Genero("Pop");
-    cout << item->toString() << endl;
+    GeneroFileF* file = new GeneroFileF("Genero.txt");
+    
+    delete file;
     return 0;
 }

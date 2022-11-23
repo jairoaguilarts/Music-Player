@@ -1,33 +1,32 @@
 //
-//  PlayListFileV.hpp
+//  SongInfoFileV.hpp
 //  Music Player
 //
 //  Created by Jairo Aguilar on 14/11/22.
 //
 
-#ifndef PlayListFileV_hpp
-#define PlayListFileV_hpp
+#ifndef SongInfoFileV_hpp
+#define SongInfoFileV_hpp
 
 #include "TDAArchivo.hpp"
-#include "SongInfo.hpp"
 #include "ArrayList.hpp"
 #include <iostream>
-#include <cstring>
 using namespace std;
 
-class PlayListFileV : public TDAArchivo {
+class SongInfoFileV : public TDAArchivo {
     
 private:
     ArrayList canciones;
     
 public:
-    PlayListFileV();
-    ~PlayListFileV();
+    SongInfoFileV();
+    ~SongInfoFileV();
     void setCanciones(ArrayList);
     ArrayList getCanciones();
-    void leer();
-    void escribir();
+    virtual bool leer();
+    virtual bool
+    escribir();
     
 };
 
-#endif /* PlayListFileV_hpp */
+#endif /* SongInfoFileV_hpp */
