@@ -28,7 +28,8 @@ int main(int argc, char** argv) {
     /*gf->agregarGenero(new Genero("Jazz"));
      gf->agregarGenero(new Genero("Blues"));
      gf->agregarGenero(new Genero("Classic"));
-     gf->agregarGenero(new Genero("Pop"));*/
+     gf->agregarGenero(new Genero("Pop"));
+    gf->agregarGenero(new Genero("Rock"));*/
     
     if(gf->abrir()){
         cout<<"Abierto\n";
@@ -36,7 +37,7 @@ int main(int argc, char** argv) {
         gf->leer();
         gf->cerrar();
     }
-    cout<<"Salir";
+    cout<<"Salir" << endl;
     delete gf;
     
     return 0;

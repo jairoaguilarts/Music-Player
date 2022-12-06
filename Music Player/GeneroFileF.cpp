@@ -37,20 +37,27 @@ GeneroFileF::GeneroFileF(string pName):TDAArchivo(pName){
         do {
             datos = new char[sector];
             file->read(datos, sector);
-            cout << "datos leidos: " << datos << endl;
+            vector<string> generosCadena;
+            int pos = 0, cont = 0;
+            for(int j = 0; j < strlen(datos)/20; j++) {
+                string genero;
+                for(int i = 0; i < 20; i++) {
+                    if(cont == 19) {
+                        cont = 0;
+                        break;
+                    } else {
+                        if(datos[pos] != ' ') {
+                            genero.push_back(datos[pos]);
+                        }
+                        pos++;
+                    }
+                }
+                Object* gen = new Genero(genero);
+                this->generos.push_back(gen);
+            }
             datos = nullptr;
         } while(datos);
     }
-     //leer un bloque de datos (registros de tipo genero)
-     //multiplicar SIZE_NOMBRE x 25 (aprox 1 sector) = 500 bytes
-         //definir un buffer char*
-         //cargar los datos con read de fstream
-         //parse el buffer y obtener los registros
-         //quitar los chars de relleno
-         //a pie
-         //usando alguna funcion string
-         //usar otra libreria como boost
-         
     return false;
 }
 
