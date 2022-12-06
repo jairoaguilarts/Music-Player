@@ -32,7 +32,7 @@ public:
     vector<Object*> getGeneros();
     bool agregarGenero(Genero*);
     bool eliminarGenero(Genero*);
-    bool modificarGenero(Genero*);
+    bool modificarGenero(string,int);
     virtual bool leer();
     virtual bool escribir();
     

@@ -18,6 +18,14 @@ GeneroFileF::~GeneroFileF(){
     generos.clear();
 }
 
+void GeneroFileF::setGeneros(vector<Object*> pGeneros) {
+    this->generos = pGeneros;
+}
+
+vector<Object*> GeneroFileF::getGeneros() {
+    return this->generos;
+}
+
 bool GeneroFileF::agregarGenero(Genero* pGenero){
     for(int i = 0; i < generos.size(); i++) {
         Genero* genero = dynamic_cast<Genero*>(generos[i]);
@@ -27,7 +35,26 @@ bool GeneroFileF::agregarGenero(Genero* pGenero){
     }
     generos.push_back(pGenero);
     return true;
-    
+}
+
+bool GeneroFileF::eliminarGenero(Genero* pGenero) {
+    for(int i = 0; i < generos.size(); i++){
+        Genero* genero = dynamic_cast<Genero*>(generos[i]);
+        if(genero->getNombre() == pGenero->getNombre()) {
+            delete generos[i];
+            return true;
+        }
+    }
+    return false;
+}
+
+bool GeneroFileF::modificarGenero(string nombreGenero, int n) {
+    Genero* genero = dynamic_cast<Genero*>(generos[n]);
+    genero->setNombre(nombreGenero);
+    if(genero->getNombre() == nombreGenero) {
+        return true;
+    }
+    return false;
 }
 
 bool GeneroFileF::leer(){
