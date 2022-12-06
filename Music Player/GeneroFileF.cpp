@@ -57,6 +57,7 @@ GeneroFileF::GeneroFileF(string pName):TDAArchivo(pName){
             }
             datos = nullptr;
         } while(datos);
+        return true;s
     }
     return false;
 }
