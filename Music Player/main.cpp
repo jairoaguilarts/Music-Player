@@ -7,6 +7,7 @@
 
 #include "Genero.hpp"
 #include "GeneroFileF.hpp"
+#include "GeneroFileV.hpp"
 
 #include <iostream>
 #include <boost/algorithm/string.hpp>
@@ -23,14 +24,14 @@ int main(int argc, char** argv) {
     trim_right(sayHi);
     cout<<"Right:"<<sayHi<<"."<<endl;
     
-    GeneroFileF* gf=new GeneroFileF("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/Genero.txt");
+    GeneroFileV* gf=new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GeneroV.txt");
     
-    /*gf->agregarGenero(new Genero("Jazz"));
+    gf->agregarGenero(new Genero("Jazz"));
     gf->agregarGenero(new Genero("Blues"));
     gf->agregarGenero(new Genero("Classic"));
     gf->agregarGenero(new Genero("Pop"));
     gf->agregarGenero(new Genero("Rock"));
-    gf->agregarGenero(new Genero("Country"));*/
+    gf->agregarGenero(new Genero("Country"));
     
     
     if(gf->abrir()){

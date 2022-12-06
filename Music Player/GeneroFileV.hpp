@@ -9,20 +9,22 @@
 #define GeneroFileV_hpp
 
 #include "TDAArchivo.hpp"
-#include "ArrayList.hpp"
+#include "Genero.hpp"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class GeneroFileV : public TDAArchivo {
     
 private:
-    ArrayList generos;
+    vector<Object*> generos;
     
 public:
-    GeneroFileV();
+    GeneroFileV(string);
     ~GeneroFileV();
-    void setGeneros(ArrayList);
-    ArrayList getGeneros();
+    void setGeneros(vector<Object*>);
+    vector<Object*> getGeneros();
+    bool agregarGenero(Genero*);
     virtual bool leer();
     virtual bool escribir();
     
