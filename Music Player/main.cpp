@@ -5,21 +5,39 @@
 //  Created by Jairo Aguilar on 14/11/22.
 //
 
-#include "ArrayList.hpp"
 #include "Genero.hpp"
 #include "GeneroFileF.hpp"
-#include "GeneroFileV.hpp"
-#include "PlayListFileF.hpp"
-#include "PlayListFileV.hpp"
-#include "SongInfoFileF.hpp"
-#include "SongInfoFileV.hpp"
-#include <fstream>
+
 #include <iostream>
+#include <boost/algorithm/string.hpp>
+using namespace boost;
 using namespace std;
 
-int main(int argc, const char * argv[]) {
-    GeneroFileF* file = new GeneroFileF("Genero.txt");
+int main(int argc, char** argv) {
     
-    delete file;
+    
+    string sayHi="     Hola Mundo     ";
+    cout<<"Original:"<<sayHi<<"."<<endl;
+    trim_left(sayHi);
+    cout<<"Left:"<<sayHi<<"."<<endl;
+    trim_right(sayHi);
+    cout<<"Right:"<<sayHi<<"."<<endl;
+    
+    GeneroFileF* gf=new GeneroFileF("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/Genero.txt");
+    
+    /*gf->agregarGenero(new Genero("Jazz"));
+     gf->agregarGenero(new Genero("Blues"));
+     gf->agregarGenero(new Genero("Classic"));
+     gf->agregarGenero(new Genero("Pop"));*/
+    
+    if(gf->abrir()){
+        cout<<"Abierto\n";
+        gf->escribir();
+        gf->leer();
+        gf->cerrar();
+    }
+    cout<<"Salir";
+    delete gf;
+    
     return 0;
 }

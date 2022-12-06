@@ -12,6 +12,7 @@
 #include "Genero.hpp"
 #include "ArrayList.hpp"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class GeneroFileF : public TDAArchivo {
@@ -21,15 +22,14 @@ class GeneroFileF : public TDAArchivo {
      size: 20 bytes
      */
 private:
-    ArrayList generos;
-    int NombreSize = 20;
+    vector<Object*> generos;
+    int SizeNombre = 20;
     
 public:
-    GeneroFileF();
     GeneroFileF(string);
     ~GeneroFileF();
-    void setGeneros(ArrayList);
-    ArrayList getGeneros();
+    void setGeneros(vector<Object*>);
+    vector<Object*> getGeneros();
     bool agregarGenero(Genero*);
     bool eliminarGenero(Genero*);
     bool modificarGenero(Genero*);
