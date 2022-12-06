@@ -26,18 +26,18 @@ int main(int argc, char** argv) {
     
     GeneroFileV* gf=new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GeneroV.txt");
     
-    gf->agregarGenero(new Genero("Jazz"));
+    /*gf->agregarGenero(new Genero("Jazz"));
     gf->agregarGenero(new Genero("Blues"));
     gf->agregarGenero(new Genero("Classic"));
     gf->agregarGenero(new Genero("Pop"));
     gf->agregarGenero(new Genero("Rock"));
-    gf->agregarGenero(new Genero("Country"));
+    gf->agregarGenero(new Genero("Country"));*/
     
     
     if(gf->abrir()){
         cout<<"Abierto\n";
         gf->escribir();
-        //gf->leer();
+        gf->leer();
         gf->cerrar();
     }
     cout<<"Salir" << endl;

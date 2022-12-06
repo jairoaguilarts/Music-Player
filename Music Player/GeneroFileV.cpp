@@ -6,6 +6,8 @@
 //
 
 #include "GeneroFileV.hpp"
+#include <sstream>
+using namespace std;
 
 GeneroFileV::GeneroFileV(string pName):TDAArchivo(pName) {}
 
@@ -32,7 +34,13 @@ bool GeneroFileV::leer() {
     if(!file->is_open()) {
         return false;
     } else {
-        
+        string datos;
+        getline(*file, datos);
+        string nombreGenero;
+        stringstream input(datos);
+        while (getline(input, nombreGenero, ':')) {
+            generos.push_back(new Genero(nombreGenero));
+        }
         return true;
     }
 }
