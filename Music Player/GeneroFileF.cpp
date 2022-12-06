@@ -9,6 +9,8 @@
 #include <iostream>
 using namespace std;
 
+GeneroFileF::GeneroFileF(string pName):TDAArchivo(pName) {}
+
 GeneroFileF::~GeneroFileF(){
     for(int i = 0 ; i< generos.size();i++){
         delete generos[i];
@@ -17,14 +19,14 @@ GeneroFileF::~GeneroFileF(){
 }
 
 bool GeneroFileF::agregarGenero(Genero* pGenero){
-    //TODO: validar si no está repetido
-    
+    for(int i = 0; i < generos.size(); i++) {
+        Genero* genero = dynamic_cast<Genero*>(generos[i]);
+        if(genero->getNombre() == pGenero->getNombre()) {
+            return false;
+        }
+    }
     generos.push_back(pGenero);
     return true;
-    
-}
-
-GeneroFileF::GeneroFileF(string pName):TDAArchivo(pName){
     
 }
 
@@ -33,7 +35,7 @@ bool GeneroFileF::leer(){
         return false;
     } else {
         int sector = this->SizeNombre * 25;
-        char * datos = nullptr;
+        char* datos = nullptr;
         do {
             datos = new char[sector];
             file->read(datos, sector);
@@ -49,8 +51,7 @@ bool GeneroFileF::leer(){
                 Object* gen = new Genero(genero);
                 this->generos.push_back(gen);
             }
-            datos = nullptr;
-        } while(datos);
+        } while(strlen(datos) != 0);
         return true;
     }
     return false;
@@ -60,24 +61,17 @@ bool GeneroFileF::leer(){
      if(!file->is_open())
          return false;
     else{
-        //necesitamos un buffer
         string buffer;
-        
         //construir buffer
         for(int i = 0 ; i< generos.size();i++){
             //recuperar todos los campos del registro
             Genero* genero = dynamic_cast<Genero*>(generos[i]);
-            
             if(genero){
                 string dato = genero->getNombre();
-                
-                
                  //truncar a SIZE_NOMBRE o menos
                 string datoTruncado = dato.substr(0,SizeNombre);
-                
                 //rellenar si es necesario el espacio no utilizado del campo
                 datoTruncado.append(SizeNombre-datoTruncado.size(),' ');
-                
                 //construir el buffer
                 buffer+=datoTruncado;
             }
