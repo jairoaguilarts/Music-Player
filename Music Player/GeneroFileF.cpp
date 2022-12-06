@@ -28,7 +28,7 @@ GeneroFileF::GeneroFileF(string pName):TDAArchivo(pName){
     
 }
 
- bool GeneroFileF::leer(){
+bool GeneroFileF::leer(){
     if(!file->is_open()) {
         return false;
     } else {
@@ -37,27 +37,21 @@ GeneroFileF::GeneroFileF(string pName):TDAArchivo(pName){
         do {
             datos = new char[sector];
             file->read(datos, sector);
-            vector<string> generosCadena;
-            int pos = 0, cont = 0;
+            int pos = 0;
             for(int j = 0; j < strlen(datos)/20; j++) {
                 string genero;
                 for(int i = 0; i < 20; i++) {
-                    if(cont == 19) {
-                        cont = 0;
-                        break;
-                    } else {
-                        if(datos[pos] != ' ') {
-                            genero.push_back(datos[pos]);
-                        }
-                        pos++;
+                    if(datos[pos] != ' ') {
+                        genero.push_back(datos[pos]);
                     }
+                    pos++;
                 }
                 Object* gen = new Genero(genero);
                 this->generos.push_back(gen);
             }
             datos = nullptr;
         } while(datos);
-        return true;s
+        return true;
     }
     return false;
 }
