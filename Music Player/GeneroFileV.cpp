@@ -43,7 +43,7 @@ bool GeneroFileV::leer() {
         }
         return true;
     }
-}
+} 
 
 bool GeneroFileV::escribir() {
     if(!file->is_open()) {

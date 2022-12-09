@@ -42,6 +42,55 @@ bool PlayListFileF::leer() {
         return false;
     } else {
         //Hacer el metodo de leer
+        int sector = this->totalBytes * 7;
+        char* datos = nullptr;
+        do {
+            datos = new char[sector];
+            file->read(datos, sector);
+            int pos = 0;
+            for(int i = 0; i < strlen(datos)/70; i++) {
+                string nombre, disco, artista, ruta;
+                for(int j = 0; j < 15; j++) { //Construye el nombre de la cancion
+                    if(datos[pos] != '"') {
+                        nombre.push_back(datos[pos]);
+                    }
+                    pos++;
+                }
+                for(int j = 0; j < 10; j++) { //Construye el nombre del disco
+                    if(datos[pos] != '"') {
+                        disco.push_back(datos[pos]);
+                    }
+                    pos++;
+                }
+                for(int j = 0; j < 15; j++) { //Construye el nombre del artista
+                    if(datos[pos] != '"') {
+                        artista.push_back(datos[pos]);
+                    }
+                    pos++;
+                }
+                for(int j = 0; j < 30; j++) { //Construye la ruta
+                    if(datos[pos] != '"') {
+                        ruta.push_back(datos[pos]);
+                    }
+                    pos++;
+                }
+                SongInfo* cancion = new SongInfo(nombre, disco, artista, ruta);
+                canciones.push_back(cancion);
+            }
+            /*
+             for(int j = 0; j < strlen(datos)/20; j++) {
+                 string genero;
+                 for(int i = 0; i < 20; i++) {
+                     if(datos[pos] != ' ') {
+                         genero.push_back(datos[pos]);
+                     }
+                     pos++;
+                 }
+                 Object* gen = new Genero(genero);
+                 this->generos.push_back(gen);
+             }
+             */
+        } while(strlen(datos) != 0);
         return true;
     }
 }

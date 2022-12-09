@@ -75,7 +75,7 @@ bool GeneroFileF::leer(){
                     }
                     pos++;
                 }
-                Object* gen = new Genero(genero);
+                Genero* gen = new Genero(genero);
                 this->generos.push_back(gen);
             }
         } while(strlen(datos) != 0);
