@@ -26,12 +26,11 @@ int main(int argc, char** argv) {
     trim_right(sayHi);
     cout<<"Right:"<<sayHi<<"."<<endl;
     
-    PlayListFileF* gf = new PlayListFileF("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/PlayList.txt");
+    PlayListFileV* gf = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/PlayListV.txt");
     
-    /*gf->agregarCancion(new SongInfo("Hora", "Hoy", "Jairo Aguilar", "12345"));
-    gf->agregarCancion(new SongInfo("Una Vez", "YHLQMDLG", "Bad Bunny, Mora", "12346"));
+    /*gf->agregarCancion(new SongInfo("Una Vez", "YHLQMDLG", "Bad Bunny, Mora", "12346"));
     gf->agregarCancion(new SongInfo("La Santa", "YHLQMDLG", "Bad Bunny", "12347"));
-    gf->agregarCancion(new SongInfo("badtrip :(", "MICRODOSIS", "Mora", "12348"));
+    gf->agregarCancion(new SongInfo("badtrip", "MICRODOSIS", "Mora", "12348"));
     gf->agregarCancion(new SongInfo("2010", "MICRODOSIS", "MORA", "12349"));
     gf->agregarCancion(new SongInfo("Dark Horse", "PRISM", "Katy Perry", "12355"));
     gf->agregarCancion(new SongInfo("200mph", "X100PRE", "Bad Bunny", "12346"));*/
