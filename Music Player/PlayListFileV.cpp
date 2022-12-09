@@ -9,6 +9,21 @@
 
 PlayListFileV::PlayListFileV(string pName):TDAArchivo(pName) {}
 
+PlayListFileV::~PlayListFileV() {
+    for(int i = 0 ; i< canciones.size();i++){
+        delete canciones[i];
+    }
+    canciones.clear();
+}
+
+void PlayListFileV::setCanciones(vector<Object*> canciones)  {
+    this->canciones = canciones;
+}
+
+vector<Object*> PlayListFileV::getCanciones() {
+    return this->canciones;
+}
+
 bool PlayListFileV::agregarCancion(SongInfo* pCancion) {
     for(int i = 0; i < canciones.size(); i++) {
         SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);
@@ -20,11 +35,13 @@ bool PlayListFileV::agregarCancion(SongInfo* pCancion) {
     return true;
 }
 
-PlayListFileV::~PlayListFileV() {
-    for(int i = 0 ; i< canciones.size();i++){
-        delete canciones[i];
+bool PlayListFileV::leer() {
+    if(!file->is_open()) {
+        return false;
+    } else {
+        
+        return true;
     }
-    canciones.clear();
 }
 
 bool PlayListFileV::escribir() {
@@ -39,6 +56,7 @@ bool PlayListFileV::escribir() {
                 buffer += dato + ":";
              }
         }
+        file->write(buffer.data(),buffer.size());
         return true;
     }
 }
