@@ -77,19 +77,6 @@ bool PlayListFileF::leer() {
                 SongInfo* cancion = new SongInfo(nombre, disco, artista, ruta);
                 canciones.push_back(cancion);
             }
-            /*
-             for(int j = 0; j < strlen(datos)/20; j++) {
-                 string genero;
-                 for(int i = 0; i < 20; i++) {
-                     if(datos[pos] != ' ') {
-                         genero.push_back(datos[pos]);
-                     }
-                     pos++;
-                 }
-                 Object* gen = new Genero(genero);
-                 this->generos.push_back(gen);
-             }
-             */
         } while(strlen(datos) != 0);
         return true;
     }
