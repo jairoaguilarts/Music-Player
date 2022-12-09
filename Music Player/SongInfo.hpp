@@ -24,8 +24,8 @@ public:
     string getNombre();
     void setDisco(string);
     string getDisco();
-    void setArtistas(string);
-    string getArtistas();
+    void setArtista(string);
+    string getArtista();
     void setRuta(string);
     string getRuta();
     bool equals(Object*);

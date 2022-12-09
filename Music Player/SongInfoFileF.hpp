@@ -19,7 +19,7 @@ private:
     ArrayList canciones;
     
 public:
-    SongInfoFileF();
+    SongInfoFileF(string);
     ~SongInfoFileF();
     void setCanciones(ArrayList);
     ArrayList getCanciones();

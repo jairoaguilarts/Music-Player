@@ -87,7 +87,7 @@ bool GeneroFileF::leer(){
  bool GeneroFileF::escribir(){
      if(!file->is_open())
          return false;
-    else{
+    else {
         string buffer;
         //construir buffer
         for(int i = 0 ; i< generos.size();i++){

@@ -32,11 +32,11 @@ string SongInfo::getDisco() {
     return disco;
 }
 
-void SongInfo::setArtistas(string artista) {
+void SongInfo::setArtista(string artista) {
     this->artista = artista;
 }
 
-string SongInfo::getArtistas() {
+string SongInfo::getArtista() {
     return artista;
 }
 

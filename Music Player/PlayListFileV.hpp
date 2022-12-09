@@ -21,7 +21,7 @@ private:
     ArrayList canciones;
     
 public:
-    PlayListFileV();
+    PlayListFileV(string);
     ~PlayListFileV();
     void setCanciones(ArrayList);
     ArrayList getCanciones();
