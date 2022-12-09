@@ -10,7 +10,8 @@
 
 #include "TDAArchivo.hpp"
 #include "SongInfo.hpp"
-#include "ArrayList.hpp"
+#include "Object.hpp"
+#include <vector>
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -18,13 +19,14 @@ using namespace std;
 class PlayListFileV : public TDAArchivo {
     
 private:
-    ArrayList canciones;
+    vector<Object*> canciones;
     
 public:
     PlayListFileV(string);
     ~PlayListFileV();
-    void setCanciones(ArrayList);
-    ArrayList getCanciones();
+    void setCanciones(vector<Object*>);
+    vector<Object*> getCanciones();
+    bool agregarCancion(SongInfo*);
     virtual bool leer();
     virtual bool escribir();
     

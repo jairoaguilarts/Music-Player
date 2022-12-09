@@ -9,6 +9,7 @@
 #include "GeneroFileF.hpp"
 #include "GeneroFileV.hpp"
 #include "PlayListFileF.hpp"
+#include "PlayListFileV.hpp"
 
 #include <iostream>
 #include <boost/algorithm/string.hpp>
@@ -25,7 +26,7 @@ int main(int argc, char** argv) {
     trim_right(sayHi);
     cout<<"Right:"<<sayHi<<"."<<endl;
     
-    PlayListFileF* gf = new PlayListFileF("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/PlayList.txt");
+    PlayListFileV* gf = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/PlayListV.txt");
     
     gf->agregarCancion(new SongInfo("Hora", "Hoy", "Jairo Aguilar", "12345"));
     gf->agregarCancion(new SongInfo("Una Vez", "YHLQMDLG", "Bad Bunny, Mora", "12346"));
