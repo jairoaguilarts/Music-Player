@@ -64,6 +64,7 @@ bool PlayListFileV::escribir() {
     if(!file->is_open()) {
         return false;
     } else {
+        file->clear();
         string buffer;
         for(int i = 0; i < canciones.size(); i++) {
             SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);

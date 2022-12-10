@@ -9,20 +9,23 @@
 #define SongInfoFileV_hpp
 
 #include "TDAArchivo.hpp"
-#include "ArrayList.hpp"
+#include "SongInfo.hpp"
+#include "Object.hpp"
+#include <vector>
 #include <iostream>
 using namespace std;
 
 class SongInfoFileV : public TDAArchivo {
     
 private:
-    ArrayList canciones;
+    vector<Object*> canciones;
     
 public:
     SongInfoFileV(string);
     ~SongInfoFileV();
-    void setCanciones(ArrayList);
-    ArrayList getCanciones();
+    void setCanciones(vector<Object*>);
+    vector<Object*> getCanciones();
+    bool agregarCancion(SongInfo*);
     virtual bool leer();
     virtual bool
     escribir();

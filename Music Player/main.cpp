@@ -10,6 +10,8 @@
 #include "GeneroFileV.hpp"
 #include "PlayListFileF.hpp"
 #include "PlayListFileV.hpp"
+#include "SongInfoFileF.hpp"
+#include "SongInfoFileV.hpp"
 
 #include <iostream>
 #include <boost/algorithm/string.hpp>
@@ -26,20 +28,20 @@ int main(int argc, char** argv) {
     trim_right(sayHi);
     cout<<"Right:"<<sayHi<<"."<<endl;
     
-    PlayListFileV* gf = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/PlayListV.txt");
+    SongInfoFileV* gf = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/SongInfoV.txt");
     
-    /*gf->agregarCancion(new SongInfo("Una Vez", "YHLQMDLG", "Bad Bunny, Mora", "12346"));
+    gf->agregarCancion(new SongInfo("Una Vez", "YHLQMDLG", "Bad Bunny, Mora", "12346"));
     gf->agregarCancion(new SongInfo("La Santa", "YHLQMDLG", "Bad Bunny", "12347"));
     gf->agregarCancion(new SongInfo("badtrip", "MICRODOSIS", "Mora", "12348"));
     gf->agregarCancion(new SongInfo("2010", "MICRODOSIS", "MORA", "12349"));
     gf->agregarCancion(new SongInfo("Dark Horse", "PRISM", "Katy Perry", "12355"));
-    gf->agregarCancion(new SongInfo("200mph", "X100PRE", "Bad Bunny", "12346"));*/
+    gf->agregarCancion(new SongInfo("200mph", "X100PRE", "Bad Bunny", "12346"));
     
     
     if(gf->abrir()){
         cout<<"Abierto\n";
-        //gf->escribir();
-        gf->leer();
+        gf->escribir();
+        //gf->leer();
         gf->cerrar();
     }
     cout<<"Salir" << endl;

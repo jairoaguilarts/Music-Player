@@ -9,20 +9,28 @@
 #define SongInfoFileF_hpp
 
 #include "TDAArchivo.hpp"
-#include "ArrayList.hpp"
+#include "Object.hpp"
+#include "SongInfo.hpp"
+#include <vector>
 #include <iostream>
 using namespace std;
 
 class SongInfoFileF : public TDAArchivo {
     
 private:
-    ArrayList canciones;
+    vector<Object*> canciones;
+    int nombreSize = 15;
+    int discoSize = 10;
+    int artistaSize = 15;
+    int rutaSize = 30;
+    int totalBytes = nombreSize + discoSize + artistaSize + rutaSize;
     
 public:
     SongInfoFileF(string);
     ~SongInfoFileF();
-    void setCanciones(ArrayList);
-    ArrayList getCanciones();
+    void setCanciones(vector<Object*>);
+    vector<Object*> getCanciones();
+    bool agregarCancion(SongInfo*);
     virtual bool leer();
     virtual bool escribir();
     
