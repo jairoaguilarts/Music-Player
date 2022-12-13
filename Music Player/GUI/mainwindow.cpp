@@ -28,7 +28,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->TablePlayList->addAction(ui->actionClear_all);
 
     mPlayer->setAudioOutput(aOutput);
-    connect(mPlayer, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
 }
 
 MainWindow::~MainWindow()
