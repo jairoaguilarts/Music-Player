@@ -1,11 +1,4 @@
-//
-//  SongInfoFileV.cpp
-//  Music Player
-//
-//  Created by Jairo Aguilar on 14/11/22.
-//
-
-#include "SongInfoFileV.hpp"
+#include "SongInfoFileV.h"
 #include <sstream>
 using namespace std;
 
@@ -53,6 +46,7 @@ bool SongInfoFileV::leer() {
             getline(inputCancion, disco, ';');
             getline(inputCancion, artista, ';');
             getline(inputCancion, ruta, ';');
+            cout << nombre << ", " << disco << ", " << artista << ", " << ruta << endl;
             SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta);
             canciones.push_back(oCancion);
         }
@@ -81,4 +75,3 @@ bool SongInfoFileV::escribir() {
         return true;
     }
 }
-

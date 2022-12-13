@@ -1,32 +1,25 @@
-//
-//  SongInfoFileV.cpp
-//  Music Player
-//
-//  Created by Jairo Aguilar on 14/11/22.
-//
-
-#include "SongInfoFileV.hpp"
+#include "PlayListFileV.h"
 #include <sstream>
 using namespace std;
 
-SongInfoFileV::SongInfoFileV(string pName):TDAArchivo(pName) {}
+PlayListFileV::PlayListFileV(string pName):TDAArchivo(pName) {}
 
-SongInfoFileV::~SongInfoFileV() {
+PlayListFileV::~PlayListFileV() {
     for(int i = 0 ; i< canciones.size();i++){
         delete canciones[i];
     }
     canciones.clear();
 }
 
-void SongInfoFileV::setCanciones(vector<Object*> canciones)  {
+void PlayListFileV::setCanciones(vector<Object*> canciones)  {
     this->canciones = canciones;
 }
 
-vector<Object*> SongInfoFileV::getCanciones() {
+vector<Object*> PlayListFileV::getCanciones() {
     return this->canciones;
 }
 
-bool SongInfoFileV::agregarCancion(SongInfo* pCancion) {
+bool PlayListFileV::agregarCancion(SongInfo* pCancion) {
     for(int i = 0; i < canciones.size(); i++) {
         SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);
         if(cancion->getNombre() == pCancion->getNombre()) {
@@ -37,7 +30,7 @@ bool SongInfoFileV::agregarCancion(SongInfo* pCancion) {
     return true;
 }
 
-bool SongInfoFileV::leer() {
+bool PlayListFileV::leer() {
     if(!file->is_open()) {
         return false;
     } else {
@@ -60,7 +53,7 @@ bool SongInfoFileV::leer() {
     }
 }
 
-bool SongInfoFileV::escribir() {
+bool PlayListFileV::escribir() {
     if(!file->is_open()) {
         return false;
     } else {
@@ -81,4 +74,3 @@ bool SongInfoFileV::escribir() {
         return true;
     }
 }
-
