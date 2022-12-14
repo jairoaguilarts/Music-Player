@@ -11,6 +11,10 @@ GeneroFileV::~GeneroFileV(){
     generos.clear();
 }
 
+vector<Object*> GeneroFileV::getGeneros() {
+    return this->generos;
+}
+
 bool GeneroFileV::agregarGenero(Genero* pGenero) {
     for(int i = 0; i < generos.size(); i++) {
         Genero* genero = dynamic_cast<Genero*>(generos[i]);
@@ -46,11 +50,7 @@ bool GeneroFileV::escribir() {
         string buffer;
         for(int i = 0; i < generos.size(); i++) {
             Genero* genero = dynamic_cast<Genero*>(generos[i]);
-            if(i == (generos.size() - 1)) {
-                buffer += genero->getNombre();
-            } else {
-                buffer += genero->getNombre() + ":";
-            }
+            buffer += genero->getNombre() + ":";
         }
         file->write(buffer.data(),buffer.size());
         return true;

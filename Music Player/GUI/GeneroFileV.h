@@ -10,6 +10,7 @@ using namespace std;
 class GeneroFileV : public TDAArchivo {
 
 private:
+    bool open;
     vector<Object*> generos;
 
 public:
