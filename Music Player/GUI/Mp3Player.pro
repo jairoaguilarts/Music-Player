@@ -30,8 +30,6 @@ SOURCES += main.cpp\
         SongInfo.cpp \
         SongInfoFileV.cpp \
         TDAArchivo.cpp \
-        crearcancion.cpp \
-        creargenero.cpp \
         mainwindow.cpp \
         uiexample.cpp
 
@@ -43,13 +41,9 @@ HEADERS  += mainwindow.h \
     SongInfo.h \
     SongInfoFileV.h \
     TDAArchivo.h \
-    crearcancion.h \
-    creargenero.h \
     uiexample.h
 
 FORMS    += mainwindow.ui \
-    crearcancion.ui \
-    creargenero.ui \
     uiexample.ui
 
 RESOURCES += \

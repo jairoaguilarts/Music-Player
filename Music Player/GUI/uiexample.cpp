@@ -13,16 +13,26 @@ UIExample::~UIExample()
     delete ui;
 }
 
-void UIExample::on_pushButton_clicked()
+void UIExample::on_pushButton_2_clicked()
 {
-    CrearGenero *genero = new CrearGenero(0);
-    genero->show();
+    QStringList list  = QFileDialog::getOpenFileNames(this,
+                                                     tr("Select Files"), "Z:\\Music",
+                                                     tr("MP3 Files (*.mp3)"));
+    if(list.isEmpty())
+        return;
+    foreach(QString rutaSeleccionada, list)
+    {
+        this->ruta = rutaSeleccionada;
+    }
 }
 
 
-void UIExample::on_pushButton_4_clicked()
+void UIExample::on_pushButton_3_clicked()
 {
-    CrearCancion *cancion = new CrearCancion(0);
-    cancion->show();
+    if(ruta.toStdString().size() != 0) {
+        cout << ruta.toStdString() << endl;
+    } else {
+        cout << "Seleccione una ruta por favor" << endl;
+    }
 }
 
