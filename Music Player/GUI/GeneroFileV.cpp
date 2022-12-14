@@ -46,7 +46,10 @@ bool GeneroFileV::escribir() {
     if(!file->is_open()) {
         return false;
     } else {
-
+        const char *temp = getFileName().c_str();
+        if(!remove(temp)){
+            return false;
+        }
         string buffer;
         for(int i = 0; i < generos.size(); i++) {
             Genero* genero = dynamic_cast<Genero*>(generos[i]);

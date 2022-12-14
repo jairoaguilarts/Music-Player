@@ -84,7 +84,7 @@ void UIExample::cargarCanciones() {
     for(int i = 0; i < canciones.size(); i++) {
         QString nombre(canciones[i]->getNombre().c_str());
         QTableWidgetItem *itemNombre = new QTableWidgetItem(nombre);
-        ui->tablaCanciones->setItem(counter, 1, itemNombre);
+        ui->tablaCanciones->setItem(counter, 0, itemNombre);
         counter++;
     }
     ui->tablaCanciones->resizeColumnToContents(0);
