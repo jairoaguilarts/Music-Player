@@ -3,7 +3,10 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QDialog>
 #include <iostream>
+#include "Genero.h"
+#include "SongInfo.h"
 using namespace std;
 
 namespace Ui {

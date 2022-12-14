@@ -30,9 +30,16 @@ void UIExample::on_pushButton_2_clicked()
 void UIExample::on_pushButton_3_clicked()
 {
     if(ruta.toStdString().size() != 0) {
-        cout << ruta.toStdString() << endl;
+        QString nombre = ui->lineNombreCancion->text();
+        QString disco = ui->lineDisco->text();
+        QString artistas = ui->lineArtistas->text();
+        SongInfo *cancion = new SongInfo(nombre.toStdString(), disco.toStdString(), artistas.toStdString(), ruta.toStdString());
+        ui->lineNombreCancion->clear();
+        ui->lineDisco->clear();
+        ui->lineArtistas->clear();
+        cout << "Cancion creada: " << cancion->getNombre() << ", " << cancion->getDisco() << ", " << cancion->getArtista() << ", " << cancion->getRuta() << endl;
     } else {
-        cout << "Seleccione una ruta por favor" << endl;
+        // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
     }
 }
 
