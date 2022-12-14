@@ -10,9 +10,6 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 
 UIExample::~UIExample()
 {
-    for(int i = 0; i < canciones.size(); i++) { //Castea de Object* a SongInfo*
-        cout << canciones[i]->getNombre() << endl;
-    }
     gfv->escribir();
     gfv->cerrar();
     sifv->escribir();
@@ -45,6 +42,7 @@ void UIExample::on_pushButton_3_clicked()
         canciones.push_back(cancion);
         sifv->agregarCancion(cancion);
         cargarCanciones();
+        ruta = "";
     } else {
         // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
     }

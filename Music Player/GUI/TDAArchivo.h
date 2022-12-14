@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>
+#include <cstdio>
 using namespace std;
 
 class TDAArchivo {
