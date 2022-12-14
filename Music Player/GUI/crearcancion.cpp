@@ -12,3 +12,18 @@ CrearCancion::~CrearCancion()
 {
     delete ui;
 }
+
+void CrearCancion::on_pushButton_2_clicked()
+{
+    QStringList list  = QFileDialog::getOpenFileNames(this,
+                                                     tr("Select Files"), "Z:\\Music",
+                                                     tr("MP3 Files (*.mp3)"));
+    if(list.isEmpty())
+        return;
+
+    foreach(QString ruta, list)
+    {
+        cout << ruta.toStdString() << endl;
+    }
+}
+
