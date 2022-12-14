@@ -41,7 +41,8 @@ void UIExample::on_pushButton_3_clicked()
         ui->lineArtistas->clear();
         canciones.push_back(cancion);
         sifv->agregarCancion(cancion);
-        cargarCanciones();
+        ui->tablaCanciones->insertRow(ui->tablaCanciones->rowCount());
+        ui->tablaCanciones->setItem(ui->tablaCanciones->rowCount() - 1, 0, new QTableWidgetItem(nombre));
         ruta = "";
     } else {
         // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
@@ -56,7 +57,6 @@ void UIExample::on_pushButton_clicked()
     ui->lineGenero->clear();
     generos.push_back(genero);
     gfv->agregarGenero(genero);
-    gfv->escribir();
 }
 
 void UIExample::crearVectores() {
