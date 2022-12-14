@@ -5,8 +5,12 @@
 #include <QFileDialog>
 #include <QDialog>
 #include <iostream>
+#include <vector>
 #include "Genero.h"
 #include "SongInfo.h"
+#include "GeneroFileV.h"
+#include "SongInfoFileV.h"
+#include "PlayListFileV.h"
 using namespace std;
 
 namespace Ui {
@@ -32,6 +36,11 @@ private slots:
 private:
     Ui::UIExample *ui;
     QString ruta;
+    vector<Genero*> generos;
+    vector<SongInfo*> canciones;
+    GeneroFileV *gfv = nullptr;
+    SongInfoFileV *sifv = nullptr;
+    PlayListFileV *plfv = nullptr;
 };
 
 #endif // UIEXAMPLE_H
