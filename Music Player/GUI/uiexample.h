@@ -2,7 +2,15 @@
 #define UIEXAMPLE_H
 
 #include <QMainWindow>
+#include <QDebug>
 #include <QFileDialog>
+#include <QStringList>
+#include <QClipboard>
+#include <QTime>
+//#include <QMediaPlayer>
+#include <QUrl>
+#include "QMediaPlayer"
+#include <QAudioOutput>
 #include <iostream>
 #include <vector>
 #include "Genero.h"

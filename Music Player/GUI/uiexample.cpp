@@ -79,13 +79,10 @@ void UIExample::crearVectores() {
 }
 
 void UIExample::cargarCanciones() {
-    int counter = ui->tablaCanciones->rowCount();
-    ui->tablaCanciones->setRowCount(counter);
     for(int i = 0; i < canciones.size(); i++) {
         QString nombre(canciones[i]->getNombre().c_str());
-        QTableWidgetItem *itemNombre = new QTableWidgetItem(nombre);
-        ui->tablaCanciones->setItem(counter, 0, itemNombre);
-        counter++;
+        ui->tablaCanciones->insertRow(ui->tablaCanciones->rowCount());
+        ui->tablaCanciones->setItem(ui->tablaCanciones->rowCount() - 1, 0, new QTableWidgetItem(nombre));
     }
     ui->tablaCanciones->resizeColumnToContents(0);
 }
