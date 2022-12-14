@@ -43,3 +43,12 @@ void UIExample::on_pushButton_3_clicked()
     }
 }
 
+
+void UIExample::on_pushButton_clicked()
+{
+    QString Qgenero = ui->lineGenero->text();
+    Genero *genero = new Genero(Qgenero.toStdString());
+    ui->lineGenero->clear();
+    cout << "Genero creado: " << genero->getNombre() << endl;
+}
+
