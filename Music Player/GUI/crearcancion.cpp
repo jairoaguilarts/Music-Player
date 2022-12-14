@@ -21,8 +21,7 @@ void CrearCancion::on_pushButton_2_clicked()
     if(list.isEmpty())
         return;
 
-    foreach(QString ruta, list)
-    {
+    foreach(QString ruta, list) {
 
     }
 }
