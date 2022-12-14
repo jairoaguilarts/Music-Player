@@ -23,7 +23,7 @@ void CrearCancion::on_pushButton_2_clicked()
 
     foreach(QString ruta, list)
     {
-        cout << ruta.toStdString() << endl;
+
     }
 }
 
