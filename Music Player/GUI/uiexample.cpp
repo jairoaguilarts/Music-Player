@@ -5,11 +5,17 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 {
     ui->setupUi(this);
     crearVectores();
+    cargarCanciones();
 }
 
 UIExample::~UIExample()
 {
+    for(int i = 0; i < canciones.size(); i++) { //Castea de Object* a SongInfo*
+        cout << canciones[i]->getNombre() << endl;
+    }
+    gfv->escribir();
     gfv->cerrar();
+    sifv->escribir();
     sifv->cerrar();
     delete ui;
 }
@@ -38,7 +44,7 @@ void UIExample::on_pushButton_3_clicked()
         ui->lineArtistas->clear();
         canciones.push_back(cancion);
         sifv->agregarCancion(cancion);
-        sifv->escribir();
+        cargarCanciones();
     } else {
         // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
     }
@@ -74,3 +80,14 @@ void UIExample::crearVectores() {
     }
 }
 
+void UIExample::cargarCanciones() {
+    int counter = ui->tablaCanciones->rowCount();
+    ui->tablaCanciones->setRowCount(counter);
+    for(int i = 0; i < canciones.size(); i++) {
+        QString nombre(canciones[i]->getNombre().c_str());
+        QTableWidgetItem *itemNombre = new QTableWidgetItem(nombre);
+        ui->tablaCanciones->setItem(counter, 1, itemNombre);
+        counter++;
+    }
+    ui->tablaCanciones->resizeColumnToContents(0);
+}

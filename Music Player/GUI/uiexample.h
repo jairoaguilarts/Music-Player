@@ -24,6 +24,8 @@ public:
     explicit UIExample(QWidget *parent = nullptr);
     ~UIExample();
     void crearVectores();
+    void cargarCanciones();
+    void cargarPlaylist();
 
 private slots:
 
