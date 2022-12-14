@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 9.0.0, 2022-12-13T12:58:26. -->
+<!-- Written by QtCreator 9.0.0, 2022-12-13T17:43:09. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -236,8 +236,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/jairoaguilar/Documents/Clases/2022 Q4/Estructura de Datos II/Proyecto VSCode/Music_Player-shell0/Tests/Mp3Player.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/Users/jairoaguilar/Documents/Clases/2022 Q4/Estructura de Datos II/Proyecto VSCode/Music_Player-shell0/Tests/Mp3Player.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Mp3Player2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/jairoaguilar/Documents/Clases/2022 Q4/Estructura de Datos II/Proyecto/Music Player/Music Player/GUI/Mp3Player.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/Users/jairoaguilar/Documents/Clases/2022 Q4/Estructura de Datos II/Proyecto/Music Player/Music Player/GUI/Mp3Player.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>

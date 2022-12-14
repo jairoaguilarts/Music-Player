@@ -42,6 +42,7 @@ MainWindow::~MainWindow()
 //adding file(s) to playlist table
 void MainWindow::on_actionAdd_files_triggered()
 {
+
     QStringList list  = QFileDialog::getOpenFileNames(this,
                                                      tr("Select Files"), "Z:\\Music",
                                                      tr("MP3 Files (*.mp3)"));
@@ -55,7 +56,7 @@ void MainWindow::on_actionAdd_files_triggered()
         ui->TablePlayList->insertRow(counter);
         int xbegin = x.lastIndexOf("/")+1;
         int xend = x.lastIndexOf('.') - xbegin ;
-        QString title = x.mid( xbegin, xend);
+        QString title = x.mid(xbegin, xend);
 
         QTableWidgetItem *item_title = new QTableWidgetItem(title);
         QTableWidgetItem *item_path = new QTableWidgetItem(x);
