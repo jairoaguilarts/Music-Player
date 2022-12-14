@@ -30,7 +30,8 @@ SOURCES += main.cpp\
         SongInfo.cpp \
         SongInfoFileV.cpp \
         TDAArchivo.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        uiexample.cpp
 
 HEADERS  += mainwindow.h \
     Genero.h \
@@ -39,9 +40,11 @@ HEADERS  += mainwindow.h \
     PlayListFileV.h \
     SongInfo.h \
     SongInfoFileV.h \
-    TDAArchivo.h
+    TDAArchivo.h \
+    uiexample.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    uiexample.ui
 
 RESOURCES += \
     resources.qrc

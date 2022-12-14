@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>772</width>
+    <width>619</width>
     <height>526</height>
    </rect>
   </property>
@@ -75,21 +75,10 @@
           <property name="text">
            <string>Title</string>
           </property>
-          <property name="font">
-           <font>
-            <pointsize>9</pointsize>
-            <bold>false</bold>
-           </font>
-          </property>
          </column>
          <column>
           <property name="text">
-           <string>File Location</string>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>9</pointsize>
-           </font>
+           <string>Ruta</string>
           </property>
          </column>
         </widget>
@@ -310,7 +299,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>772</width>
+     <width>619</width>
      <height>24</height>
     </rect>
    </property>
