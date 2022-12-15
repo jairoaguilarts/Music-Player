@@ -38,12 +38,14 @@ public:
 private slots:
 
     void on_pushButton_2_clicked();
-
     void on_pushButton_3_clicked();
-
     void on_pushButton_clicked();
-
     void on_btnPlay_clicked();
+
+    void ElapsedTime(qint64 x);
+    void RemaningTime(qint64 x);
+
+    void on_btnNext_clicked();
 
 private:
 
