@@ -50,8 +50,8 @@ private:
     vector<Genero*> generos;
     vector<SongInfo*> canciones;
     //Cambiar rutas al directorio
-    GeneroFileV *gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
-    SongInfoFileV *sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");;
+    GeneroFileV *gfv = nullptr;
+    SongInfoFileV *sifv = nullptr;
     PlayListFileV *plfv;
 
 };

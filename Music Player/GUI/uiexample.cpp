@@ -4,6 +4,8 @@
 UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 {
     ui->setupUi(this);
+    this->gfv = new GeneroFileV("./GUI/Generos.txt");
+    this->sifv = new SongInfoFileV("./GUI/Canciones.txt");
     crearVectores();
     cargarCanciones();
 }
