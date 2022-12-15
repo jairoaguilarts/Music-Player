@@ -78,10 +78,17 @@ void UIExample::on_btnCrearCancion_clicked()
 void UIExample::on_btnCrearGenero_clicked()
 {
     QString Qgenero = ui->lineGenero->text();
-    Genero *genero = new Genero(Qgenero.toStdString());
-    ui->lineGenero->clear();
-    generos.push_back(genero);
-    gfv->agregarGenero(genero);
+    if(Qgenero.toStdString().size() != 0) {
+        Genero *genero = new Genero(Qgenero.toStdString());
+        ui->lineGenero->clear();
+        generos.push_back(genero);
+        gfv->agregarGenero(genero);
+    } else {
+        // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
+        QMessageBox msgBox;
+        msgBox.setText("Inserte el nombre del genero por favor.");
+        msgBox.exec();
+    }
 }
 
 void UIExample::crearVectores() {
