@@ -285,3 +285,9 @@ void UIExample::on_btnCrearPlaylist_clicked()
 
 }
 
+
+void UIExample::on_SeekSlider_sliderMoved(int position)
+{
+    mPlayer->setPosition(position);
+}
+
