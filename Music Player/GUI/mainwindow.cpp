@@ -305,3 +305,9 @@ void MainWindow::RemaningTime(qint64 x)
     ui->SeekSlider->setRange(0, x);
 }
 
+
+void MainWindow::on_btnPlay_pressed()
+{
+
+}
+

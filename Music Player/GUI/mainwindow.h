@@ -47,6 +47,8 @@ private slots:
     void ElapsedTime(qint64 x);
     void RemaningTime(qint64 x);
 
+    void on_btnPlay_pressed();
+
 private:
     Ui::MainWindow *ui;
 

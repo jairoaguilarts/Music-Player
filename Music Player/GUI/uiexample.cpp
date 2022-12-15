@@ -16,6 +16,9 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 
     crearVectores();
     cargarCanciones();
+
+    this->ShuffleFlag = false;
+    this->RepeatStat = RepeatFlags::All;
 }
 
 UIExample::~UIExample()
@@ -96,3 +99,33 @@ void UIExample::cargarCanciones() {
     }
     ui->tablaCanciones->resizeColumnToContents(0);
 }
+
+void UIExample::on_btnPlay_clicked()
+{
+    QItemSelectionModel *selected = ui->TablePlayList_2->selectionModel();
+    if(ui->TablePlayList_2->item(0, 0) ==0)
+        return;
+
+    int m_current_row=0;
+
+    if(ShuffleFlag)
+    {
+        int randomValue = rand() % ui->TablePlayList_2->rowCount();
+        qDebug() << "Random song number:" << randomValue;
+        ui->TablePlayList_2->selectRow(randomValue);
+    }
+
+    if(selected->hasSelection())
+    {
+        m_current_row = selected->currentIndex().row();
+
+    }else{
+        ui->TablePlayList_2->selectRow(m_current_row);
+    }
+
+    //ui->statusBar->showMessage("[+]Now Playing: " + ui->TablePlayList->item(m_current_row, 0)->text(), 20*1000);
+    QString filename  = ui->TablePlayList_2->item(m_current_row, 1)->text();
+    mPlayer->setSource(QUrl::fromLocalFile(filename));
+    mPlayer->play();
+}
+

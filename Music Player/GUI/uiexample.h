@@ -43,6 +43,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_btnPlay_clicked();
+
 private:
 
     Ui::UIExample *ui;
@@ -52,6 +54,15 @@ private:
     GeneroFileV *gfv = nullptr;
     SongInfoFileV *sifv = nullptr;
     PlayListFileV *plfv;
+
+    //lo agregue de mainwindow -> shell0
+    enum RepeatFlags {None = 0, One = 1, All =2};
+    bool ShuffleFlag;
+    bool isPlayingFlag;
+    int RepeatStat;
+
+    QMediaPlayer *mPlayer;
+    QAudioOutput *aOutput;
 
 };
 
