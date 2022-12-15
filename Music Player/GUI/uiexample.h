@@ -49,7 +49,6 @@ private:
     QString ruta;
     vector<Genero*> generos;
     vector<SongInfo*> canciones;
-    //Cambiar rutas al directorio
     GeneroFileV *gfv = nullptr;
     SongInfoFileV *sifv = nullptr;
     PlayListFileV *plfv;
