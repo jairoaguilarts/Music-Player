@@ -132,7 +132,7 @@ void UIExample::on_btnPlay_clicked()
         ui->tablaCanciones->selectRow(m_current_row);
     }
 
-    //ui->statusBar->showMessage("[+]Now Playing: " + ui->TablePlayList->item(m_current_row, 0)->text(), 20*1000);
+    ui->statusbar->showMessage("[+]Now Playing: " + ui->tablaCanciones->item(m_current_row, 0)->text(), 20*1000);
     SongInfo *cancion = canciones[m_current_row];
     mPlayer->setSource(QUrl::fromLocalFile(QString(cancion->getRuta().c_str())));
     mPlayer->play();
