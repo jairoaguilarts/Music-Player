@@ -37,15 +37,22 @@ public:
 
 private slots:
 
-    void on_pushButton_2_clicked();
-    void on_pushButton_3_clicked();
-    void on_pushButton_clicked();
     void on_btnPlay_clicked();
 
     void ElapsedTime(qint64 x);
     void RemaningTime(qint64 x);
 
     void on_btnNext_clicked();
+    void on_btnStop_clicked();
+    void on_btnShuffel_clicked();
+    void on_btnPrev_clicked();
+    void on_btnPause_clicked();
+    void on_btnRepeat_clicked();
+    void on_btnMute_clicked();
+    void on_btnSeleccionarRuta_clicked();
+    void on_btnCrearCancion_clicked();
+    void on_btnCrearPlaylist_clicked();
+    void on_btnCrearGenero_clicked();
 
 private:
 

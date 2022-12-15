@@ -422,7 +422,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="btnCrearGenero">
       <property name="geometry">
        <rect>
         <x>50</x>
@@ -517,7 +517,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btnSeleccionarRuta">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -530,7 +530,7 @@
        <string>Seleccionar ruta mp3</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="btnCrearCancion">
       <property name="geometry">
        <rect>
         <x>40</x>
@@ -579,7 +579,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="btnAgregarCancio">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -592,7 +592,7 @@
        <string>Agregar Cancion</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="btnCrearPlaylist">
       <property name="geometry">
        <rect>
         <x>50</x>

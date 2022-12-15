@@ -39,7 +39,7 @@ UIExample::~UIExample()
     delete ui;
 }
 
-void UIExample::on_pushButton_2_clicked()
+void UIExample::on_btnSeleccionarRuta_clicked()
 {
     QStringList list  = QFileDialog::getOpenFileNames(this, tr("Select Files"), "Z:\\Music", tr("MP3 Files (*.mp3)"));
     if(list.isEmpty())
@@ -51,7 +51,7 @@ void UIExample::on_pushButton_2_clicked()
 }
 
 
-void UIExample::on_pushButton_3_clicked()
+void UIExample::on_btnCrearCancion_clicked()
 {
     if(ruta.toStdString().size() != 0) {
         QString nombre = ui->lineNombreCancion->text();
@@ -72,7 +72,7 @@ void UIExample::on_pushButton_3_clicked()
 }
 
 
-void UIExample::on_pushButton_clicked()
+void UIExample::on_btnCrearGenero_clicked()
 {
     QString Qgenero = ui->lineGenero->text();
     Genero *genero = new Genero(Qgenero.toStdString());
@@ -172,6 +172,110 @@ void UIExample::RemaningTime(qint64 x)
 
 
 void UIExample::on_btnNext_clicked()
+{
+    QItemSelectionModel *selected = ui->tablaCanciones->selectionModel();
+    int m_current_row = selected->currentIndex().row();
+
+    if(ui->tablaCanciones->item(0, 0) ==0  &&  m_current_row == 0)
+        return;
+
+    if(RepeatStat == RepeatFlags::One)
+    {
+        ui->tablaCanciones->selectRow(m_current_row);
+
+    }else if( (RepeatStat == RepeatFlags::All) && (m_current_row == ui->tablaCanciones->rowCount()-1) )
+    {
+        ui->tablaCanciones->selectRow(0);
+    }else{
+        ui->tablaCanciones->selectRow(m_current_row+1);
+    }
+    on_btnPlay_clicked();
+}
+
+
+void UIExample::on_btnStop_clicked()
+{
+    mPlayer->stop();
+}
+
+
+void UIExample::on_btnShuffel_clicked()
+{
+    if(ui->btnShuffel->isChecked())
+    {
+        ShuffleFlag = true;
+        ui->statusbar->showMessage("Shuffle selection is On", 5*1000);
+    }else{
+        ShuffleFlag = false;
+        ui->statusbar->showMessage("Shuffle selection is Off", 5*1000);
+    }
+}
+
+
+void UIExample::on_btnPrev_clicked()
+{
+    QItemSelectionModel *selected = ui->tablaCanciones->selectionModel();
+    int m_current_row = selected->currentIndex().row();
+
+    if(ui->tablaCanciones->item(0, 0) ==0  &&  m_current_row == 0)
+        return;
+
+    if(RepeatStat == RepeatFlags::One)
+    {
+        ui->tablaCanciones->selectRow(m_current_row);
+
+    }else if( (RepeatStat == RepeatFlags::All) && (m_current_row == 0) )
+    {
+        ui->tablaCanciones->selectRow(ui->tablaCanciones->rowCount()-1);
+    }else{
+        ui->tablaCanciones->selectRow(m_current_row-1);
+    }
+    on_btnPlay_clicked();
+}
+
+
+void UIExample::on_btnPause_clicked()
+{
+    if(ui->btnPause->isChecked())
+    {
+        mPlayer->pause();
+    }else{
+        mPlayer->play();
+    }
+}
+
+
+void UIExample::on_btnRepeat_clicked()
+{
+    RepeatStat++;
+
+    if(RepeatStat == RepeatFlags::One )
+    {
+        ui->btnRepeat->setChecked(true);
+        ui->statusbar->showMessage("Repeat One", 5*1000);
+    }else if(RepeatStat == RepeatFlags::All)
+    {
+        ui->btnRepeat->setChecked(true);
+        ui->statusbar->showMessage("Repeat All", 5*1000);
+    }else{
+        ui->btnRepeat->setChecked(false);
+        ui->statusbar->showMessage("Repeat Off", 5*1000);
+        RepeatStat=0;
+    }
+}
+
+
+void UIExample::on_btnMute_clicked()
+{
+    if(ui->btnMute->isChecked())
+    {
+        aOutput->setMuted(true);
+    } else {
+        aOutput->setMuted(false);
+    }
+}
+
+void UIExample::on_btnCrearPlaylist_clicked()
 {
 
 }
