@@ -11,10 +11,6 @@ GeneroFileV::~GeneroFileV(){
     generos.clear();
 }
 
-vector<Object*> GeneroFileV::getGeneros() {
-    return this->generos;
-}
-
 bool GeneroFileV::agregarGenero(Genero* pGenero) {
     for(int i = 0; i < generos.size(); i++) {
         Genero* genero = dynamic_cast<Genero*>(generos[i]);
@@ -26,6 +22,9 @@ bool GeneroFileV::agregarGenero(Genero* pGenero) {
     return true;
 }
 
+vector<Object*> GeneroFileV::getGeneros() {
+    return generos;
+}
 
 bool GeneroFileV::leer() {
     if(!file->is_open()) {
@@ -46,7 +45,7 @@ bool GeneroFileV::escribir() {
     if(!file->is_open()) {
         return false;
     } else {
-
+        file->clear();
         string buffer;
         for(int i = 0; i < generos.size(); i++) {
             Genero* genero = dynamic_cast<Genero*>(generos[i]);

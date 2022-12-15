@@ -38,14 +38,14 @@ bool SongInfoFileV::leer() {
         getline(*file, datos);
         string cancion;
         stringstream input(datos);
-        while (getline(input, cancion, '%')) {
+        while (getline(input, cancion, ':')) {
             string nombre, disco, artista, ruta;
             stringstream inputCancion(cancion);
             //Getlines para obtener los datos
-            getline(inputCancion, nombre, '?');
-            getline(inputCancion, disco, '?');
-            getline(inputCancion, artista, '?');
-            getline(inputCancion, ruta, '?');
+            getline(inputCancion, nombre, ';');
+            getline(inputCancion, disco, ';');
+            getline(inputCancion, artista, ';');
+            getline(inputCancion, ruta, ';');
             SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta);
             canciones.push_back(oCancion);
         }
@@ -62,8 +62,8 @@ bool SongInfoFileV::escribir() {
         for(int i = 0; i < canciones.size(); i++) {
             SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);
             if(cancion) {
-                string dato = cancion->getNombre() + "?" + cancion->getDisco() + "?" + cancion->getArtista() + "?" + cancion->getRuta();
-                buffer += dato + "%";
+                string dato = cancion->getNombre() + ";" + cancion->getDisco() + ";" + cancion->getArtista() + ";" + cancion->getRuta();
+                buffer += dato + ":";
              }
         }
         file->write(buffer.data(),buffer.size());

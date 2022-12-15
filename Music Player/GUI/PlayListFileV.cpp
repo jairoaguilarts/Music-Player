@@ -63,11 +63,7 @@ bool PlayListFileV::escribir() {
             SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);
             if(cancion) {
                 string dato = cancion->getNombre() + ";" + cancion->getDisco() + ";" + cancion->getArtista() + ";" + cancion->getRuta();
-                if(i == (canciones.size() - 1)) {
-                    buffer += dato;
-                } else {
-                    buffer += dato + ":";
-                }
+                buffer += dato + ":";
              }
         }
         file->write(buffer.data(),buffer.size());

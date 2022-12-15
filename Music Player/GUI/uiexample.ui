@@ -331,7 +331,7 @@
          <x>420</x>
          <y>450</y>
          <width>190</width>
-         <height>160</height>
+         <height>130</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -343,7 +343,7 @@
        <property name="minimumSize">
         <size>
          <width>190</width>
-         <height>160</height>
+         <height>130</height>
         </size>
        </property>
        <property name="title">
@@ -359,13 +359,6 @@
         </item>
         <item>
          <widget class="QLineEdit" name="lineNombrePlaylist"/>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btnAgregarCancio">
-          <property name="text">
-           <string>Agregar Cancion</string>
-          </property>
-         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="btnCrearPlaylist">
@@ -575,6 +568,19 @@
         </item>
        </layout>
       </widget>
+      <widget class="QPushButton" name="btnAgregarCancio">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>610</y>
+         <width>160</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Agregar Cancion</string>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -585,7 +591,7 @@
      <x>0</x>
      <y>0</y>
      <width>650</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>
