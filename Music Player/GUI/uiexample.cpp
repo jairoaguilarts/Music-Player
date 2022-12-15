@@ -53,10 +53,10 @@ void UIExample::on_btnSeleccionarRuta_clicked()
 
 void UIExample::on_btnCrearCancion_clicked()
 {
-    if(ruta.toStdString().size() != 0) {
-        QString nombre = ui->lineNombreCancion->text();
-        QString disco = ui->lineDisco->text();
-        QString artistas = ui->lineArtistas->text();
+    QString nombre = ui->lineNombreCancion->text();
+    QString disco = ui->lineDisco->text();
+    QString artistas = ui->lineArtistas->text();
+    if(ruta.toStdString().size() != 0 && nombre.toStdString().size() != 0 && disco.toStdString().size() != 0 && artistas.toStdString().size() != 0) {
         SongInfo *cancion = new SongInfo(nombre.toStdString(), disco.toStdString(), artistas.toStdString(), ruta.toStdString());
         ui->lineNombreCancion->clear();
         ui->lineDisco->clear();
@@ -68,6 +68,9 @@ void UIExample::on_btnCrearCancion_clicked()
         ruta = "";
     } else {
         // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
+        QMessageBox msgBox;
+        msgBox.setText("Complete todos los campos de la cancion por favor.");
+        msgBox.exec();
     }
 }
 
@@ -120,7 +123,6 @@ void UIExample::on_btnPlay_clicked()
     if(ShuffleFlag)
     {
         int randomValue = rand() % ui->tablaCanciones->rowCount();
-        qDebug() << "Random song number:" << randomValue;
         ui->tablaCanciones->selectRow(randomValue);
     }
 
@@ -145,8 +147,6 @@ void UIExample::ElapsedTime(qint64 x)
     t =  t.addMSecs(x);
     ui->lblTimeElsp->setText(t.toString("mm:ss"));
     ui->SeekSlider->setValue(x);
-    //qDebug() << "Duration" << mPlayer->duration();
-
     if(x!=0 && x==mPlayer->duration() )
     {
         if(RepeatStat == RepeatFlags::None)
@@ -157,7 +157,6 @@ void UIExample::ElapsedTime(qint64 x)
 
         on_btnNext_clicked();
     }
-    //qDebug() << RepeatStat;
 
 }
 /// Slot to update interface
@@ -166,7 +165,6 @@ void UIExample::RemaningTime(qint64 x)
     QTime t = QTime(0,0,0);
     t =  t.addMSecs(x);
     ui->lblTimeRemaining->setText(t.toString("mm:ss"));
-    //qDebug() << t;
     ui->SeekSlider->setRange(0, x);
 }
 
@@ -183,7 +181,7 @@ void UIExample::on_btnNext_clicked()
     {
         ui->tablaCanciones->selectRow(m_current_row);
 
-    }else if( (RepeatStat == RepeatFlags::All) && (m_current_row == ui->tablaCanciones->rowCount()-1) )
+    }else if((RepeatStat == RepeatFlags::All) && (m_current_row == ui->tablaCanciones->rowCount()-1))
     {
         ui->tablaCanciones->selectRow(0);
     }else{

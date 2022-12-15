@@ -7,10 +7,10 @@
 #include <QStringList>
 #include <QClipboard>
 #include <QTime>
-//#include <QMediaPlayer>
+#include <QMediaPlayer>
 #include <QUrl>
-#include "QMediaPlayer"
 #include <QAudioOutput>
+#include <QMessageBox>
 #include <iostream>
 #include <vector>
 #include "Genero.h"
