@@ -54,6 +54,8 @@ private slots:
     void on_btnCrearPlaylist_clicked();
     void on_btnCrearGenero_clicked();
 
+    void on_SeekSlider_sliderMoved(int position);
+
 private:
 
     Ui::UIExample *ui;
