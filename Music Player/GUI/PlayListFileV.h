@@ -13,6 +13,7 @@ class PlayListFileV : public TDAArchivo {
 
 private:
 
+    string nombrePlaylist;
     vector<Object*> canciones;
 
 public:
@@ -24,6 +25,9 @@ public:
     //setters y getters
     void setCanciones(vector<Object*>);
     vector<Object*> getCanciones();
+
+    void setNombre();
+    string getNombre();
 
     //funciones de la clase
     bool agregarCancion(SongInfo*);

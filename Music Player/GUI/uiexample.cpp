@@ -10,6 +10,7 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
     //rutas mac jair
     //this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
     //this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
+    //this->plfv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Playlists.txt");
 
     //rutas linux shell0
     //this->gfv = new GeneroFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Generos.txt");
@@ -38,9 +39,8 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 
 UIExample::~UIExample()
 {
-    gfv->escribir();
+
     gfv->cerrar();
-    sifv->escribir();
     sifv->cerrar();
     delete ui;
 }
@@ -67,6 +67,7 @@ void UIExample::on_btnCrearCancion_clicked()
     QString genero = ui->lineGenero->text();
 
     if(ruta.toStdString().size() != 0 && nombre.toStdString().size() != 0 && disco.toStdString().size() != 0 && artistas.toStdString().size() != 0) {
+        sifv->abrir();
         SongInfo *cancion = new SongInfo(nombre.toStdString(), disco.toStdString(), artistas.toStdString(), ruta.toStdString(), genero.toStdString());
         ui->lineNombreCancion->clear();
         ui->lineDisco->clear();
@@ -76,6 +77,9 @@ void UIExample::on_btnCrearCancion_clicked()
         ui->tablaCanciones->insertRow(ui->tablaCanciones->rowCount());
         ui->tablaCanciones->setItem(ui->tablaCanciones->rowCount() - 1, 0, new QTableWidgetItem(nombre));
         ruta = "";
+        //aqui escribe la cancion
+        sifv->escribir();
+        sifv->cerrar();
     } else {
         // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
         QMessageBox msgBox;
@@ -88,10 +92,13 @@ void UIExample::on_btnCrearGenero_clicked()
 {
     QString Qgenero = ui->lineGenero->text();
     if(Qgenero.toStdString().size() != 0) {
+        gfv->abrir();
         Genero *genero = new Genero(Qgenero.toStdString());
         ui->lineGenero->clear();
         generos.push_back(genero);
         gfv->agregarGenero(genero);
+        //agrega el genero al archivo genero.txt
+        gfv->escribir();
     } else {
         // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
         QMessageBox msgBox;
@@ -110,6 +117,7 @@ void UIExample::crearVectores() {
             Genero *gen = dynamic_cast<Genero*>(generosLeidos[i]);
             this->generos.push_back(gen);
         }
+        gfv->cerrar();
     }
 
     //carga las canciones de Canciones.txt
@@ -120,6 +128,7 @@ void UIExample::crearVectores() {
             SongInfo *can = dynamic_cast<SongInfo*>(cancionesLeidas[i]);
             this->canciones.push_back(can);
         }
+        sifv->cerrar();
     }
 
     //carga las canciones de Canciones.txt
@@ -130,6 +139,7 @@ void UIExample::crearVectores() {
             //SongInfo *can = dynamic_cast<SongInfo*>(cancionesLeidas[i]);
             //this->canciones.push_back(can);
         }
+        plfv->cerrar();
     }
 }
 
