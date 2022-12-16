@@ -7,19 +7,19 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 
     //Cambiar rutas
 
-    //rutas mac jair
-    //this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
-    //this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
-    //this->plfv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Playlists.txt");
+    //rutas mac jairo
+    this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
+    this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
+    this->plfv = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Playlists.txt");
 
     //rutas linux shell0
     //this->gfv = new GeneroFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Generos.txt");
     //this->sifv = new SongInfoFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Canciones.txt");
 
     //rutas mac shell0
-    this->gfv = new GeneroFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Generos.txt");
-    this->sifv = new SongInfoFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Canciones.txt");
-    this->plfv = new PlayListFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Playlists.txt");
+    //this->gfv = new GeneroFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Generos.txt");
+    //this->sifv = new SongInfoFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Canciones.txt");
+    //this->plfv = new PlayListFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Playlists.txt");
 
     crearVectores();
     cargarCanciones();

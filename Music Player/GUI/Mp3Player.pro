@@ -30,10 +30,9 @@ SOURCES += main.cpp\
         SongInfo.cpp \
         SongInfoFileV.cpp \
         TDAArchivo.cpp \
-        mainwindow.cpp \
         uiexample.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += \
     Genero.h \
     GeneroFileV.h \
     Object.h \
@@ -43,7 +42,7 @@ HEADERS  += mainwindow.h \
     TDAArchivo.h \
     uiexample.h
 
-FORMS    += mainwindow.ui \
+FORMS    += \
     uiexample.ui
 
 RESOURCES += \
