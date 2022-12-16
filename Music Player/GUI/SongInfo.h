@@ -3,16 +3,21 @@
 
 #include "Object.h"
 #include <iostream>
+
 using namespace std;
 
 class SongInfo : public Object {
 
 private:
-    string nombre, disco, artista, ruta;
+
+    string nombre, disco, artista, ruta, genero;
 
 public:
-    SongInfo(string,string,string,string);
+
+    SongInfo(string,string,string,string,string);
     ~SongInfo();
+
+    //setters y getters
     void setNombre(string);
     string getNombre();
     void setDisco(string);
@@ -21,6 +26,10 @@ public:
     string getArtista();
     void setRuta(string);
     string getRuta();
+    void setGenero(string);
+    string getGenero();
+
+    //metodos polimorficos del objeto
     bool equals(Object*);
     string toString();
 

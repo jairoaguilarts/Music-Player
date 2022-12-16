@@ -20,6 +20,7 @@ vector<Object*> PlayListFileV::getCanciones() {
 }
 
 bool PlayListFileV::agregarCancion(SongInfo* pCancion) {
+
     for(int i = 0; i < canciones.size(); i++) {
         SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);
         if(cancion->getNombre() == pCancion->getNombre()) {
@@ -39,14 +40,15 @@ bool PlayListFileV::leer() {
         string cancion;
         stringstream input(datos);
         while (getline(input, cancion, ':')) {
-            string nombre, disco, artista, ruta;
+            string nombre, disco, artista, ruta, genero;
             stringstream inputCancion(cancion);
             //Getlines para obtener los datos
             getline(inputCancion, nombre, ';');
             getline(inputCancion, disco, ';');
             getline(inputCancion, artista, ';');
             getline(inputCancion, ruta, ';');
-            SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta);
+            getline(inputCancion, genero, ';');
+            SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta, genero);
             canciones.push_back(oCancion);
         }
         return true;

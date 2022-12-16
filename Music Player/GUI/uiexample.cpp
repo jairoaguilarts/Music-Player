@@ -4,13 +4,14 @@
 UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 {
     ui->setupUi(this);
+
     //Cambiar rutas
 
-    //rutas mac
+    //rutas mac jair
     //this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
     //this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
 
-    //rutas linux
+    //rutas linux shell0
     //this->gfv = new GeneroFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Generos.txt");
     //this->sifv = new SongInfoFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Canciones.txt");
 
@@ -46,7 +47,8 @@ UIExample::~UIExample()
 
 void UIExample::on_btnSeleccionarRuta_clicked()
 {
-    QStringList list  = QFileDialog::getOpenFileNames(this, tr("Select Files"), "Z:\\Music", tr("MP3 Files (*.mp3)"));
+    //QStringList list  = QFileDialog::getOpenFileNames(this, tr("Select Files"), "Z:\\Music", tr("MP3 Files (*.mp3)"));
+    QStringList list  = QFileDialog::getOpenFileNames(this, tr("Select Files"), "~/", tr("MP3 Files (*.mp3)"));
     if(list.isEmpty())
         return;
     foreach(QString rutaSeleccionada, list)
@@ -57,12 +59,15 @@ void UIExample::on_btnSeleccionarRuta_clicked()
 
 void UIExample::on_btnCrearCancion_clicked()
 {
+
     QString nombre = ui->lineNombreCancion->text();
     QString disco = ui->lineDisco->text();
     QString artistas = ui->lineArtistas->text();
+    //esto no hace nada todavia
+    QString genero = ui->lineGenero->text();
 
     if(ruta.toStdString().size() != 0 && nombre.toStdString().size() != 0 && disco.toStdString().size() != 0 && artistas.toStdString().size() != 0) {
-        SongInfo *cancion = new SongInfo(nombre.toStdString(), disco.toStdString(), artistas.toStdString(), ruta.toStdString());
+        SongInfo *cancion = new SongInfo(nombre.toStdString(), disco.toStdString(), artistas.toStdString(), ruta.toStdString(), genero.toStdString());
         ui->lineNombreCancion->clear();
         ui->lineDisco->clear();
         ui->lineArtistas->clear();
@@ -96,7 +101,8 @@ void UIExample::on_btnCrearGenero_clicked()
 }
 
 void UIExample::crearVectores() {
-    //carga las canciones de Canciones.txt
+
+    //carga los generos de Generos.txt
     if(gfv->abrir()) {
         this->gfv->leer();
         vector<Object*> generosLeidos = gfv->getGeneros();
@@ -105,12 +111,24 @@ void UIExample::crearVectores() {
             this->generos.push_back(gen);
         }
     }
+
+    //carga las canciones de Canciones.txt
     if(sifv->abrir()) {
         this->sifv->leer();
         vector<Object*> cancionesLeidas = sifv->getCanciones();
         for(int i = 0; i < cancionesLeidas.size(); i++) { //Castea de Object* a SongInfo*
             SongInfo *can = dynamic_cast<SongInfo*>(cancionesLeidas[i]);
             this->canciones.push_back(can);
+        }
+    }
+
+    //carga las canciones de Canciones.txt
+    if(plfv->abrir()) {
+        this->plfv->leer();
+        vector<Object*> playlistsLeidas = plfv->getCanciones();
+        for(int i = 0; i < playlistsLeidas.size(); i++) { //Castea de Object* a SongInfo*
+            //SongInfo *can = dynamic_cast<SongInfo*>(cancionesLeidas[i]);
+            //this->canciones.push_back(can);
         }
     }
 }
