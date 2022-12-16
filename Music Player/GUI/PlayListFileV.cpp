@@ -11,12 +11,22 @@ PlayListFileV::~PlayListFileV() {
     canciones.clear();
 }
 
-void PlayListFileV::setCanciones(vector<Object*> canciones)  {
+void PlayListFileV::setPlaylists(vector<Object*> canciones)  {
     this->canciones = canciones;
 }
 
-vector<Object*> PlayListFileV::getCanciones() {
+vector<Object*> PlayListFileV::getPlaylists() {
     return this->canciones;
+}
+
+void PlayListFileV::setNombre(string _nombre)
+{
+    this->nombrePlaylist=_nombre;
+}
+
+string PlayListFileV::getNombre()
+{
+    return this->nombrePlaylist;
 }
 
 bool PlayListFileV::agregarCancion(SongInfo* pCancion) {
@@ -38,22 +48,32 @@ bool PlayListFileV::leer() {
     } else {
         string datos;
         getline(*file, datos);
+        string playlist;
         string cancion;
         stringstream input(datos);
 
         //hacer un fwhile de las llaves {
-        while (getline(input, cancion, '%')) {
-            string nombre, disco, artista, ruta, genero;
-            stringstream inputCancion(cancion);
-            //Getlines para obtener los datos
-            getline(inputCancion, nombre, ';');
-            getline(inputCancion, disco, ';');
-            getline(inputCancion, artista, ';');
-            getline(inputCancion, ruta, ';');
-            getline(inputCancion, genero, ';');
-            SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta, genero);
-            canciones.push_back(oCancion);
+        while (getline(input, playlist, '}')){
+            string name, listaCanciones;
+            stringstream inputPLaylists(playlist);
+            getline(inputPLaylists, name, '{');
+            getline(inputPLaylists, listaCanciones,'{');
+            cout << name << endl;
+            cout << listaCanciones << endl;
+            while (getline(input, cancion, '%')) {
+                string nombre, disco, artista, ruta, genero;
+                stringstream inputCancion(cancion);
+                //Getlines para obtener los datos
+                getline(inputCancion, nombre, ';');
+                getline(inputCancion, disco, ';');
+                getline(inputCancion, artista, ';');
+                getline(inputCancion, ruta, ';');
+                getline(inputCancion, genero, ';');
+                SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta, genero);
+                canciones.push_back(oCancion);
+            }
         }
+
 
         return true;
     }
@@ -67,7 +87,8 @@ bool PlayListFileV::escribir() {
         file->clear();
         string buffer;
 
-        //Nombre{nombre;disco;artista;ruta;genero:nombre%disco;artista;ruta;genero%}Nombre1{nombre;disco;artista;ruta;genero:nombre%disco;artista;ruta;genero%}
+        // NombrePLaylist{nombre;disco;artista;ruta;genero:nombre%disco;artista;ruta;genero%}Playlist2{nombre;disco;artista;ruta;genero:nombre%disco;artista;ruta;genero%}
+        buffer +=this->getNombre() + "{";
 
         for(int i = 0; i < canciones.size(); i++) {
             SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);
@@ -76,6 +97,7 @@ bool PlayListFileV::escribir() {
                 buffer += dato + ":";
              }
         }
+        buffer += "}";
 
         file->write(buffer.data(),buffer.size());
         return true;

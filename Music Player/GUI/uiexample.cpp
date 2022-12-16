@@ -63,28 +63,36 @@ void UIExample::on_btnCrearCancion_clicked()
     QString nombre = ui->lineNombreCancion->text();
     QString disco = ui->lineDisco->text();
     QString artistas = ui->lineArtistas->text();
-    //esto no hace nada todavia
     QString genero = ui->lineGenero->text();
 
     if(ruta.toStdString().size() != 0 && nombre.toStdString().size() != 0 && disco.toStdString().size() != 0 && artistas.toStdString().size() != 0) {
-        sifv->abrir();
+
+        this->sifv->abrir();
         SongInfo *cancion = new SongInfo(nombre.toStdString(), disco.toStdString(), artistas.toStdString(), ruta.toStdString(), genero.toStdString());
+
+        //clear el UI y la ruta
         ui->lineNombreCancion->clear();
         ui->lineDisco->clear();
         ui->lineArtistas->clear();
-        canciones.push_back(cancion);
-        sifv->agregarCancion(cancion);
+        this->ruta = "";
+
+        this->canciones.push_back(cancion);
+        this->sifv->agregarCancion(cancion);
+
         ui->tablaCanciones->insertRow(ui->tablaCanciones->rowCount());
         ui->tablaCanciones->setItem(ui->tablaCanciones->rowCount() - 1, 0, new QTableWidgetItem(nombre));
-        ruta = "";
+
         //aqui escribe la cancion
         sifv->escribir();
         sifv->cerrar();
+
     } else {
+
         // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
         QMessageBox msgBox;
         msgBox.setText("Complete todos los campos de la cancion por favor.");
         msgBox.exec();
+
     }
 }
 
@@ -131,10 +139,10 @@ void UIExample::crearVectores() {
         sifv->cerrar();
     }
 
-    //carga las canciones de Canciones.txt
+    //carga los playlists de Playlist.txt
     if(plfv->abrir()) {
         this->plfv->leer();
-        vector<Object*> playlistsLeidas = plfv->getCanciones();
+        vector<Object*> playlistsLeidas = plfv->getPlaylists();
         for(int i = 0; i < playlistsLeidas.size(); i++) { //Castea de Object* a SongInfo*
             //SongInfo *can = dynamic_cast<SongInfo*>(cancionesLeidas[i]);
             //this->canciones.push_back(can);
@@ -308,7 +316,32 @@ void UIExample::on_btnMute_clicked()
 
 void UIExample::on_btnCrearPlaylist_clicked()
 {
+    QString playlistName = ui->lineNombrePlaylist->text();
 
+    //valida
+    if(playlistName.toStdString().size() != 0) {
+
+        this->plfv->abrir();
+
+        //clear el UI y la ruta
+        ui->lineNombrePlaylist->clear();
+
+
+        ui->tablaPlaylist->insertRow(ui->tablaPlaylist->rowCount());
+        ui->tablaPlaylist->setItem(ui->tablaPlaylist->rowCount() - 1, 0, new QTableWidgetItem(playlistName));
+
+        //aqui escribe la cancion
+        plfv->escribir();
+        plfv->cerrar();
+
+    } else {
+
+        // Mostrar dialogo para indicar que no se ha seleccionado ninguna ruta
+        QMessageBox msgBox;
+        msgBox.setText("Complete todos los campos de la cancion por favor.");
+        msgBox.exec();
+
+    }
 }
 
 void UIExample::on_SeekSlider_sliderMoved(int position)

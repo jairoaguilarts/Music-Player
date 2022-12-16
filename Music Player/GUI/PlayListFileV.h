@@ -23,10 +23,10 @@ public:
     ~PlayListFileV();
 
     //setters y getters
-    void setCanciones(vector<Object*>);
-    vector<Object*> getCanciones();
+    void setPlaylists(vector<Object*>);
+    vector<Object*> getPlaylists();
 
-    void setNombre();
+    void setNombre(string);
     string getNombre();
 
     //funciones de la clase
