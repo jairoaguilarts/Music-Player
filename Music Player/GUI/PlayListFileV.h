@@ -12,13 +12,24 @@ using namespace std;
 class PlayListFileV : public TDAArchivo {
 
 private:
+
+    string nombrePlaylist;
     vector<Object*> canciones;
 
 public:
+
+    //constructores
     PlayListFileV(string);
     ~PlayListFileV();
-    void setCanciones(vector<Object*>);
-    vector<Object*> getCanciones();
+
+    //setters y getters
+    void setPlaylists(vector<Object*>);
+    vector<Object*> getPlaylists();
+
+    void setNombre(string);
+    string getNombre();
+
+    //funciones de la clase
     bool agregarCancion(SongInfo*);
     virtual bool leer();
     virtual bool escribir();

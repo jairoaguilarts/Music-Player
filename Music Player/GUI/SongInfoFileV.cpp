@@ -1,5 +1,6 @@
 #include "SongInfoFileV.h"
 #include <sstream>
+
 using namespace std;
 
 SongInfoFileV::SongInfoFileV(string pName):TDAArchivo(pName) {}
@@ -31,6 +32,7 @@ bool SongInfoFileV::agregarCancion(SongInfo* pCancion) {
 }
 
 bool SongInfoFileV::leer() {
+
     if(!file->is_open()) {
         return false;
     } else {
@@ -38,22 +40,25 @@ bool SongInfoFileV::leer() {
         getline(*file, datos);
         string cancion;
         stringstream input(datos);
-        while (getline(input, cancion, ':')) {
-            string nombre, disco, artista, ruta;
+        while (getline(input, cancion, '%')) {
+            string nombre, disco, artista, ruta, genero;
             stringstream inputCancion(cancion);
             //Getlines para obtener los datos
             getline(inputCancion, nombre, ';');
             getline(inputCancion, disco, ';');
             getline(inputCancion, artista, ';');
             getline(inputCancion, ruta, ';');
-            SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta);
+            getline(inputCancion, genero, ';');
+            SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta, genero);
             canciones.push_back(oCancion);
         }
         return true;
     }
+
 }
 
 bool SongInfoFileV::escribir() {
+
     if(!file->is_open()) {
         return false;
     } else {
@@ -62,8 +67,8 @@ bool SongInfoFileV::escribir() {
         for(int i = 0; i < canciones.size(); i++) {
             SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);
             if(cancion) {
-                string dato = cancion->getNombre() + ";" + cancion->getDisco() + ";" + cancion->getArtista() + ";" + cancion->getRuta();
-                buffer += dato + ":";
+                string dato = cancion->getNombre() + ";" + cancion->getDisco() + ";" + cancion->getArtista() + ";" + cancion->getRuta() + ";" + cancion->getGenero();
+                buffer += dato + "%";
              }
         }
         file->write(buffer.data(),buffer.size());

@@ -216,7 +216,7 @@
          <x>420</x>
          <y>30</y>
          <width>190</width>
-         <height>122</height>
+         <height>161</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -243,6 +243,9 @@
          </widget>
         </item>
         <item>
+         <widget class="QListView" name="listGenero"/>
+        </item>
+        <item>
          <widget class="QLineEdit" name="lineGenero"/>
         </item>
         <item>
@@ -258,7 +261,7 @@
        <property name="geometry">
         <rect>
          <x>420</x>
-         <y>170</y>
+         <y>190</y>
          <width>190</width>
          <height>270</height>
         </rect>
@@ -329,7 +332,7 @@
        <property name="geometry">
         <rect>
          <x>420</x>
-         <y>450</y>
+         <y>470</y>
          <width>190</width>
          <height>130</height>
         </rect>
@@ -411,7 +414,7 @@
       <widget class="QGroupBox" name="groupBox_2">
        <property name="geometry">
         <rect>
-         <x>30</x>
+         <x>220</x>
          <y>30</y>
          <width>180</width>
          <height>501</height>
@@ -491,7 +494,7 @@
       <widget class="QGroupBox" name="groupBox_3">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>20</x>
          <y>30</y>
          <width>180</width>
          <height>501</height>
