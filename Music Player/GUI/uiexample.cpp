@@ -7,12 +7,17 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
     //Cambiar rutas
 
     //rutas mac
-    this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
-    this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
+    //this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
+    //this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
 
     //rutas linux
     //this->gfv = new GeneroFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Generos.txt");
     //this->sifv = new SongInfoFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Canciones.txt");
+
+    //rutas mac shell0
+    this->gfv = new GeneroFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Generos.txt");
+    this->sifv = new SongInfoFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Canciones.txt");
+    this->plfv = new PlayListFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Playlists.txt");
 
     crearVectores();
     cargarCanciones();
@@ -50,12 +55,12 @@ void UIExample::on_btnSeleccionarRuta_clicked()
     }
 }
 
-
 void UIExample::on_btnCrearCancion_clicked()
 {
     QString nombre = ui->lineNombreCancion->text();
     QString disco = ui->lineDisco->text();
     QString artistas = ui->lineArtistas->text();
+
     if(ruta.toStdString().size() != 0 && nombre.toStdString().size() != 0 && disco.toStdString().size() != 0 && artistas.toStdString().size() != 0) {
         SongInfo *cancion = new SongInfo(nombre.toStdString(), disco.toStdString(), artistas.toStdString(), ruta.toStdString());
         ui->lineNombreCancion->clear();
@@ -74,7 +79,6 @@ void UIExample::on_btnCrearCancion_clicked()
     }
 }
 
-
 void UIExample::on_btnCrearGenero_clicked()
 {
     QString Qgenero = ui->lineGenero->text();
@@ -92,6 +96,7 @@ void UIExample::on_btnCrearGenero_clicked()
 }
 
 void UIExample::crearVectores() {
+    //carga las canciones de Canciones.txt
     if(gfv->abrir()) {
         this->gfv->leer();
         vector<Object*> generosLeidos = gfv->getGeneros();
@@ -175,7 +180,6 @@ void UIExample::RemaningTime(qint64 x)
     ui->SeekSlider->setRange(0, x);
 }
 
-
 void UIExample::on_btnNext_clicked()
 {
     QItemSelectionModel *selected = ui->tablaCanciones->selectionModel();
@@ -197,12 +201,10 @@ void UIExample::on_btnNext_clicked()
     on_btnPlay_clicked();
 }
 
-
 void UIExample::on_btnStop_clicked()
 {
     mPlayer->stop();
 }
-
 
 void UIExample::on_btnShuffel_clicked()
 {
@@ -215,7 +217,6 @@ void UIExample::on_btnShuffel_clicked()
         ui->statusbar->showMessage("Shuffle selection is Off", 5*1000);
     }
 }
-
 
 void UIExample::on_btnPrev_clicked()
 {
@@ -238,7 +239,6 @@ void UIExample::on_btnPrev_clicked()
     on_btnPlay_clicked();
 }
 
-
 void UIExample::on_btnPause_clicked()
 {
     if(ui->btnPause->isChecked())
@@ -248,7 +248,6 @@ void UIExample::on_btnPause_clicked()
         mPlayer->play();
     }
 }
-
 
 void UIExample::on_btnRepeat_clicked()
 {
@@ -269,7 +268,6 @@ void UIExample::on_btnRepeat_clicked()
     }
 }
 
-
 void UIExample::on_btnMute_clicked()
 {
     if(ui->btnMute->isChecked())
@@ -284,7 +282,6 @@ void UIExample::on_btnCrearPlaylist_clicked()
 {
 
 }
-
 
 void UIExample::on_SeekSlider_sliderMoved(int position)
 {

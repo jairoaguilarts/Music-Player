@@ -18,6 +18,7 @@
 #include "GeneroFileV.h"
 #include "SongInfoFileV.h"
 #include "PlayListFileV.h"
+
 using namespace std;
 
 namespace Ui {
@@ -64,7 +65,7 @@ private:
     vector<SongInfo*> canciones;
     GeneroFileV *gfv = nullptr;
     SongInfoFileV *sifv = nullptr;
-    PlayListFileV *plfv;
+    PlayListFileV *plfv = nullptr;
 
     //lo agregue de mainwindow -> shell0
     enum RepeatFlags {None = 0, One = 1, All =2};
