@@ -7,9 +7,9 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 
     //Cambiar rutas
     //rutas mac jairo
-    this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
-    this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
-    this->plfv = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Playlists.txt");
+    //this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
+    //this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
+    //this->plfv = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Playlists.txt");
 
     //rutas linux shell0
     //this->gfv = new GeneroFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Generos.txt");
@@ -25,6 +25,10 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
     //this->sifv = new SongInfoFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Canciones.txt");
     //this->plfv = new PlayListFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Playlists.txt");
 
+    //Rutas Windows Fran
+    this->gfv = new GeneroFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Generos.txt");
+    this->sifv = new SongInfoFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Canciones.txt");
+    this->plfv = new PlayListFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Playlists.txt");
     crearVectores();
     cargarCanciones();
 
