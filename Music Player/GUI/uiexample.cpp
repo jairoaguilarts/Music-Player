@@ -7,9 +7,9 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 
     //Cambiar rutas
     //rutas mac jairo
-    //this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
-    //this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
-    //this->plfv = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Playlists.txt");
+    this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
+    this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
+    this->plfv = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Playlists.txt");
 
     //rutas linux shell0
     //this->gfv = new GeneroFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Generos.txt");
@@ -26,9 +26,10 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
     //this->plfv = new PlayListFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Playlists.txt");
 
     //Rutas Windows Fran
-    this->gfv = new GeneroFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Generos.txt");
-    this->sifv = new SongInfoFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Canciones.txt");
-    this->plfv = new PlayListFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Playlists.txt");
+    //this->gfv = new GeneroFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Generos.txt");
+    //this->sifv = new SongInfoFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Canciones.txt");
+    //this->plfv = new PlayListFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Playlists.txt");
+
     crearVectores();
     cargarCanciones();
 
@@ -67,7 +68,7 @@ void UIExample::on_btnSeleccionarRuta_clicked()
 
 void UIExample::on_btnCrearCancion_clicked()
 {
-
+    //Obtiene los datos de los lineEdits
     QString nombre = ui->lineNombreCancion->text();
     QString disco = ui->lineDisco->text();
     QString artistas = ui->lineArtistas->text();
@@ -87,6 +88,7 @@ void UIExample::on_btnCrearCancion_clicked()
         this->canciones.push_back(cancion);
         this->sifv->agregarCancion(cancion);
 
+        //Inserta a la tabla canciones
         ui->tablaCanciones->insertRow(ui->tablaCanciones->rowCount());
         ui->tablaCanciones->setItem(ui->tablaCanciones->rowCount() - 1, 0, new QTableWidgetItem(nombre));
 
@@ -151,7 +153,7 @@ void UIExample::crearVectores() {
     if(plfv->abrir()) {
         this->plfv->leer();
         vector<Object*> playlistsLeidas = plfv->getPlaylists();
-        for(int i = 0; i < playlistsLeidas.size(); i++) { //Castea de Object* a SongInfo*
+        for(int i = 0; i < playlistsLeidas.size(); i++) { //Castea de Object* a PlayList*
             //SongInfo *can = dynamic_cast<SongInfo*>(cancionesLeidas[i]);
             //this->canciones.push_back(can);
         }
@@ -335,11 +337,11 @@ void UIExample::on_btnCrearPlaylist_clicked()
         //clear el UI y la ruta
         ui->lineNombrePlaylist->clear();
 
-
+        //Agrega a la tabla de playlists
         ui->tablaPlaylist->insertRow(ui->tablaPlaylist->rowCount());
         ui->tablaPlaylist->setItem(ui->tablaPlaylist->rowCount() - 1, 0, new QTableWidgetItem(playlistName));
 
-        //aqui escribe la cancion
+        //aqui escribe la playlist
         plfv->escribir();
         plfv->cerrar();
 
