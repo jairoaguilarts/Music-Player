@@ -59,9 +59,7 @@ SOURCES       = ../GUI/main.cpp \
 		../GUI/SongInfo.cpp \
 		../GUI/SongInfoFileV.cpp \
 		../GUI/TDAArchivo.cpp \
-		../GUI/mainwindow.cpp \
 		../GUI/uiexample.cpp qrc_resources.cpp \
-		moc_mainwindow.cpp \
 		moc_uiexample.cpp
 OBJECTS       = main.o \
 		Genero.o \
@@ -70,10 +68,8 @@ OBJECTS       = main.o \
 		SongInfo.o \
 		SongInfoFileV.o \
 		TDAArchivo.o \
-		mainwindow.o \
 		uiexample.o \
 		qrc_resources.o \
-		moc_mainwindow.o \
 		moc_uiexample.o
 DIST          = ../GUI/Mp3Player.rc \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/spec_pre.prf \
@@ -334,6 +330,7 @@ DIST          = ../GUI/Mp3Player.rc \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/qt_config.prf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/macx-clang/qmake.conf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/spec_post.prf \
+		../GUI/.qmake.stash \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/exclusive_builds.prf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/mac/sdk.prf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/toolchain.prf \
@@ -363,8 +360,7 @@ DIST          = ../GUI/Mp3Player.rc \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/exceptions.prf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/yacc.prf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/lex.prf \
-		../GUI/Mp3Player.pro ../GUI/mainwindow.h \
-		../GUI/Genero.h \
+		../GUI/Mp3Player.pro ../GUI/Genero.h \
 		../GUI/GeneroFileV.h \
 		../GUI/Object.h \
 		../GUI/PlayListFileV.h \
@@ -378,7 +374,6 @@ DIST          = ../GUI/Mp3Player.rc \
 		../GUI/SongInfo.cpp \
 		../GUI/SongInfoFileV.cpp \
 		../GUI/TDAArchivo.cpp \
-		../GUI/mainwindow.cpp \
 		../GUI/uiexample.cpp
 QMAKE_TARGET  = Mp3Player
 DESTDIR       = 
@@ -388,7 +383,7 @@ TARGET        = Mp3Player.app/Contents/MacOS/Mp3Player
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 13.0
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Library/Developer/CommandLineTools
-EXPORT__QMAKE_STASH_ = 
+EXPORT__QMAKE_STASH_ = /Users/jairoaguilar/Documents/Clases/2022 Q4/Estructura de Datos II/Proyecto/Music Player/Music Player/build-Mp3Player-Desktop_x86_darwin_generic_mach_o_64bit-Debug/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64 arm64
 EXPORT_DEFAULT_ARCHS = x86_64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
@@ -400,7 +395,7 @@ include /Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/mac/sdk
 first: all
 ####### Build rules
 
-Mp3Player.app/Contents/MacOS/Mp3Player: ui_mainwindow.h ui_uiexample.h $(OBJECTS)  
+Mp3Player.app/Contents/MacOS/Mp3Player: ui_uiexample.h $(OBJECTS)  
 	@test -d Mp3Player.app/Contents/MacOS/ || mkdir -p Mp3Player.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -662,6 +657,7 @@ Makefile: ../GUI/Mp3Player.pro /Users/jairoaguilar/Desktop/Creator/6.5.0/macos/m
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/qt_config.prf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/macx-clang/qmake.conf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/exclusive_builds.prf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/mac/sdk.prf \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/toolchain.prf \
@@ -957,6 +953,7 @@ Makefile: ../GUI/Mp3Player.pro /Users/jairoaguilar/Desktop/Creator/6.5.0/macos/m
 /Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/qt_config.prf:
 /Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/macx-clang/qmake.conf:
 /Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/exclusive_builds.prf:
 /Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/mac/sdk.prf:
 /Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/features/toolchain.prf:
@@ -1028,9 +1025,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../GUI/resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../GUI/mainwindow.h ../GUI/Genero.h ../GUI/GeneroFileV.h ../GUI/Object.h ../GUI/PlayListFileV.h ../GUI/SongInfo.h ../GUI/SongInfoFileV.h ../GUI/TDAArchivo.h ../GUI/uiexample.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../GUI/main.cpp ../GUI/Genero.cpp ../GUI/GeneroFileV.cpp ../GUI/PlayListFileV.cpp ../GUI/SongInfo.cpp ../GUI/SongInfoFileV.cpp ../GUI/TDAArchivo.cpp ../GUI/mainwindow.cpp ../GUI/uiexample.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../GUI/mainwindow.ui ../GUI/uiexample.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../GUI/Genero.h ../GUI/GeneroFileV.h ../GUI/Object.h ../GUI/PlayListFileV.h ../GUI/SongInfo.h ../GUI/SongInfoFileV.h ../GUI/TDAArchivo.h ../GUI/uiexample.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../GUI/main.cpp ../GUI/Genero.cpp ../GUI/GeneroFileV.cpp ../GUI/PlayListFileV.cpp ../GUI/SongInfo.cpp ../GUI/SongInfoFileV.cpp ../GUI/TDAArchivo.cpp ../GUI/uiexample.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../GUI/uiexample.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1040,6 +1037,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r Mp3Player.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -1079,31 +1077,9 @@ qrc_resources.cpp: ../GUI/resources.qrc \
 		../GUI/icons/Shuffle-32.png
 	/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/libexec/rcc -name resources --no-zstd ../GUI/resources.qrc -o qrc_resources.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_uiexample.cpp
+compiler_moc_header_make_all: moc_uiexample.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_uiexample.cpp
-moc_mainwindow.cpp: ../GUI/mainwindow.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/QDebug \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/qdebug.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/QFileDialog \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/QStringList \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/qstringlist.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtGui.framework/Headers/QClipboard \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtGui.framework/Headers/qclipboard.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/QTime \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/qdatetime.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/QUrl \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/qurl.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtMultimedia.framework/Headers/QMediaPlayer \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtMultimedia.framework/Headers/QAudioOutput \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/libexec/moc
-	/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/mkspecs/macx-clang -I'/Users/jairoaguilar/Documents/Clases/2022 Q4/Estructura de Datos II/Proyecto/Music Player/Music Player/GUI' -I/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtMultimedia.framework/Headers -I/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers -I/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtGui.framework/Headers -I/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtNetwork.framework/Headers -I/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib ../GUI/mainwindow.h -o moc_mainwindow.cpp
-
+	-$(DEL_FILE) moc_uiexample.cpp
 moc_uiexample.cpp: ../GUI/uiexample.h \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -1139,13 +1115,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_uiexample.h
+compiler_uic_make_all: ui_uiexample.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_uiexample.h
-ui_mainwindow.h: ../GUI/mainwindow.ui \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/libexec/uic
-	/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/libexec/uic ../GUI/mainwindow.ui -o ui_mainwindow.h
-
+	-$(DEL_FILE) ui_uiexample.h
 ui_uiexample.h: ../GUI/uiexample.ui \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/libexec/uic
 	/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/libexec/uic ../GUI/uiexample.ui -o ui_uiexample.h
@@ -1223,28 +1195,6 @@ SongInfoFileV.o: ../GUI/SongInfoFileV.cpp ../GUI/SongInfoFileV.h \
 TDAArchivo.o: ../GUI/TDAArchivo.cpp ../GUI/TDAArchivo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TDAArchivo.o ../GUI/TDAArchivo.cpp
 
-mainwindow.o: ../GUI/mainwindow.cpp ../GUI/mainwindow.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/QDebug \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/qdebug.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/QFileDialog \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/QStringList \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/qstringlist.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtGui.framework/Headers/QClipboard \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtGui.framework/Headers/qclipboard.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/QTime \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/qdatetime.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/QUrl \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtCore.framework/Headers/qurl.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtMultimedia.framework/Headers/QMediaPlayer \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtMultimedia.framework/Headers/qmediaplayer.h \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtMultimedia.framework/Headers/QAudioOutput \
-		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtMultimedia.framework/Headers/qaudiooutput.h \
-		ui_mainwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../GUI/mainwindow.cpp
-
 uiexample.o: ../GUI/uiexample.cpp ../GUI/uiexample.h \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/jairoaguilar/Desktop/Creator/6.5.0/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -1278,9 +1228,6 @@ uiexample.o: ../GUI/uiexample.cpp ../GUI/uiexample.h \
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
-
-moc_mainwindow.o: moc_mainwindow.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 moc_uiexample.o: moc_uiexample.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_uiexample.o moc_uiexample.cpp

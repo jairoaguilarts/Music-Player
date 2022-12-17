@@ -316,6 +316,7 @@ void UIExample::on_btnMute_clicked()
 
 void UIExample::on_btnCrearPlaylist_clicked()
 {
+    //Agarra el nombre de la playlist
     QString playlistName = ui->lineNombrePlaylist->text();
 
     //valida
