@@ -60,6 +60,10 @@ private slots:
 
     void on_bttnShowPlay_clicked();
 
+    void on_bttnShowSongs_clicked();
+
+    void on_btnAgregarCancio_clicked();
+
 private:
 
     Ui::UIExample *ui;

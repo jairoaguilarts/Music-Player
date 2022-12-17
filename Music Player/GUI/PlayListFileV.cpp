@@ -33,7 +33,7 @@ bool PlayListFileV::agregarPlayList(PlayListInfo* _pLista) {
 
 bool PlayListFileV::leer() {
 
-    /*if(!file->is_open()) {
+    if(!file->is_open()) {
         return false;
     } else {
         string datos;
@@ -42,15 +42,14 @@ bool PlayListFileV::leer() {
         string cancion;
         stringstream input(datos);
 
-        //hacer un fwhile de las llaves {
         while (getline(input, playlist, '}')){
             string name, listaCanciones;
             stringstream inputPLaylists(playlist);
             getline(inputPLaylists, name, '{');
             getline(inputPLaylists, listaCanciones,'{');
-            cout << name << endl;
-            cout << listaCanciones << endl;
-            while (getline(input, cancion, '%')) {
+            PlayListInfo* pLista = new PlayListInfo(name);
+            stringstream inputLista(listaCanciones);
+            while (getline(inputLista, cancion, '%')) {
                 string nombre, disco, artista, ruta, genero;
                 stringstream inputCancion(cancion);
                 //Getlines para obtener los datos
@@ -60,13 +59,14 @@ bool PlayListFileV::leer() {
                 getline(inputCancion, ruta, ';');
                 getline(inputCancion, genero, ';');
                 SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta, genero);
-                listaCanciones.push_back(oCancion);
+                pLista->addCancion(oCancion);
             }
+            this->listaCanciones.push_back(pLista);
         }
 
-
+    }
         return true;
-    }*/
+
 }
 
 bool PlayListFileV::escribir() {

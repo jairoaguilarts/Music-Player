@@ -21,18 +21,18 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
     //this->plfv = new PlayListFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Playlists.txt");
 
     //rutas windows Julio
-    this->gfv = new GeneroFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Generos.txt");
-    this->sifv = new SongInfoFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Canciones.txt");
-    this->plfv = new PlayListFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Playlists.txt");
+    //this->gfv = new GeneroFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Generos.txt");
+    //this->sifv = new SongInfoFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Canciones.txt");
+    //this->plfv = new PlayListFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Playlists.txt");
 
     //Rutas Windows Fran
-    //this->gfv = new GeneroFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Generos.txt");
-    //this->sifv = new SongInfoFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Canciones.txt");
-    //this->plfv = new PlayListFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Playlists.txt");
+    this->gfv = new GeneroFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Generos.txt");
+    this->sifv = new SongInfoFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Canciones.txt");
+    this->plfv = new PlayListFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Playlists.txt");
 
     crearVectores();
     cargarCanciones();
-
+    cargarPlaylist();
     this->ShuffleFlag = false;
     this->RepeatStat = RepeatFlags::All;
 
@@ -154,9 +154,8 @@ void UIExample::crearVectores() {
         this->plfv->leer();
         vector<Object*> playlistsLeidas = plfv->getPlaylists();
         for(int i = 0; i < playlistsLeidas.size(); i++) {
-            //Castea de Object* a PlayList*
-            //SongInfo *can = dynamic_cast<SongInfo*>(cancionesLeidas[i]);
-            //this->canciones.push_back(can);
+            PlayListInfo* lista = dynamic_cast<PlayListInfo*>(playlistsLeidas[i]);
+            this->pListas.push_back(lista);
         }
         plfv->cerrar();
     }
@@ -169,6 +168,15 @@ void UIExample::cargarCanciones() {
         ui->tablaCanciones->setItem(ui->tablaCanciones->rowCount() - 1, 0, new QTableWidgetItem(nombre));
     }
     ui->tablaCanciones->resizeColumnToContents(0);
+}
+
+void UIExample::cargarPlaylist(){
+    for(int i = 0; i < pListas.size(); i++){
+        QString nombre(pListas[i]->getNombre().c_str());
+        ui->tablaPlaylist->insertRow(ui->tablaPlaylist->rowCount());
+        ui->tablaPlaylist->setItem(ui->tablaPlaylist->rowCount() - 1, 0, new QTableWidgetItem(nombre));
+    }
+    ui->tablaPlaylist->resizeColumnToContents(0);
 }
 
 void UIExample::on_btnPlay_clicked()
@@ -371,7 +379,7 @@ void UIExample::on_bttnShowPlay_clicked()
 {
     QItemSelectionModel *playlistSelected = ui->tablaPlaylist->selectionModel();
 
-    if(ui->tablaCanciones->item(0, 0) ==0)
+    if(ui->tablaPlaylist->item(0, 0) == 0)
         return;
 
     int m_current_row=0;
@@ -380,7 +388,55 @@ void UIExample::on_bttnShowPlay_clicked()
         m_current_row = playlistSelected->currentIndex().row();
 
     }else{
-        ui->tablaCanciones->selectRow(m_current_row);
+        ui->tablaPlaylist->selectRow(m_current_row);
     }
+
+    PlayListInfo *listaSelected = pListas[m_current_row];
+
+    ui->tablaCanciones->setRowCount(0);
+    for(int i = 0; i < listaSelected->getCanciones().size(); i++) {
+        SongInfo *cancion = dynamic_cast<SongInfo*>(listaSelected->getCanciones()[i]);
+        QString nombre(cancion->getNombre().c_str());
+        ui->tablaCanciones->insertRow(ui->tablaCanciones->rowCount());
+        ui->tablaCanciones->setItem(ui->tablaCanciones->rowCount() - 1, 0, new QTableWidgetItem(nombre));
+    }
+    ui->tablaCanciones->resizeColumnToContents(0);
+}
+
+
+void UIExample::on_bttnShowSongs_clicked()
+{
+    ui->tablaCanciones->setRowCount(0);
+    cargarCanciones();
+}
+
+
+void UIExample::on_btnAgregarCancio_clicked()
+{
+    QItemSelectionModel *playlistSelected = ui->tablaPlaylist->selectionModel();
+    QItemSelectionModel *cancionSelected = ui->tablaCanciones->selectionModel();
+
+    if(ui->tablaPlaylist->item(0, 0) == 0 || ui->tablaCanciones->item(0, 0) == 0)
+        return;
+
+    int m_current_row_song = 0, m_current_row_playlist = 0;
+
+    if(playlistSelected->hasSelection() && cancionSelected->hasSelection())
+    {
+        m_current_row_playlist = playlistSelected->currentIndex().row();
+        m_current_row_song = cancionSelected->currentIndex().row();
+    }else{
+        ui->tablaPlaylist->selectRow(m_current_row_playlist);
+        ui->tablaCanciones->selectRow(m_current_row_song);
+    }
+
+    PlayListInfo *listaSelected = pListas[m_current_row_playlist];
+    SongInfo *songSelected = canciones[m_current_row_song];
+    listaSelected->addCancion(songSelected);
+
+    QMessageBox msgBox;
+    string mensaje(songSelected->getNombre() + " fue agregada a a la playlist: " + listaSelected->getNombre());
+    msgBox.setText(mensaje.c_str());
+    msgBox.exec();
 }
 
