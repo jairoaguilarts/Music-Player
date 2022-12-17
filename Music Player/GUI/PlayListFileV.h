@@ -4,6 +4,7 @@
 #include "TDAArchivo.h"
 #include "SongInfo.h"
 #include "Object.h"
+#include "PlayListInfo.h"
 #include <vector>
 #include <iostream>
 #include <cstring>
@@ -13,8 +14,8 @@ class PlayListFileV : public TDAArchivo {
 
 private:
 
-    string nombrePlaylist;
-    vector<Object*> canciones;
+    //string nombrePlaylist;
+    vector<Object*> listaCanciones;
 
 public:
 
@@ -26,11 +27,8 @@ public:
     void setPlaylists(vector<Object*>);
     vector<Object*> getPlaylists();
 
-    void setNombre(string);
-    string getNombre();
-
     //funciones de la clase
-    bool agregarCancion(SongInfo*);
+    bool agregarPlayList(PlayListInfo*);
     virtual bool leer();
     virtual bool escribir();
 

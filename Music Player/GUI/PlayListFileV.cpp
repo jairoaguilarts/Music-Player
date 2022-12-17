@@ -5,45 +5,35 @@ using namespace std;
 PlayListFileV::PlayListFileV(string pName):TDAArchivo(pName) {}
 
 PlayListFileV::~PlayListFileV() {
-    for(int i = 0 ; i< canciones.size();i++){
-        delete canciones[i];
+    for(int i = 0 ; i < listaCanciones.size();i++){
+        delete listaCanciones[i];
     }
-    canciones.clear();
+    listaCanciones.clear();
 }
 
 void PlayListFileV::setPlaylists(vector<Object*> canciones)  {
-    this->canciones = canciones;
+    this->listaCanciones = canciones;
 }
 
 vector<Object*> PlayListFileV::getPlaylists() {
-    return this->canciones;
+    return this->listaCanciones;
 }
 
-void PlayListFileV::setNombre(string _nombre)
-{
-    this->nombrePlaylist=_nombre;
-}
+bool PlayListFileV::agregarPlayList(PlayListInfo* _pLista) {
 
-string PlayListFileV::getNombre()
-{
-    return this->nombrePlaylist;
-}
-
-bool PlayListFileV::agregarCancion(SongInfo* pCancion) {
-
-    for(int i = 0; i < canciones.size(); i++) {
-        SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);
-        if(cancion->getNombre() == pCancion->getNombre()) {
+    for(int i = 0; i < listaCanciones.size(); i++) {
+        PlayListInfo* cancion = dynamic_cast<PlayListInfo*>(listaCanciones[i]);
+        if(cancion->getNombre() == _pLista->getNombre()) {
             return false;
         }
     }
-    canciones.push_back(pCancion);
+    listaCanciones.push_back(_pLista);
     return true;
 }
 
 bool PlayListFileV::leer() {
 
-    if(!file->is_open()) {
+    /*if(!file->is_open()) {
         return false;
     } else {
         string datos;
@@ -70,13 +60,13 @@ bool PlayListFileV::leer() {
                 getline(inputCancion, ruta, ';');
                 getline(inputCancion, genero, ';');
                 SongInfo* oCancion = new SongInfo(nombre, disco, artista, ruta, genero);
-                canciones.push_back(oCancion);
+                listaCanciones.push_back(oCancion);
             }
         }
 
 
         return true;
-    }
+    }*/
 }
 
 bool PlayListFileV::escribir() {
@@ -87,18 +77,23 @@ bool PlayListFileV::escribir() {
         file->clear();
         string buffer;
 
-        // NombrePLaylist{nombre;disco;artista;ruta;genero:nombre%disco;artista;ruta;genero%}Playlist2{nombre;disco;artista;ruta;genero:nombre%disco;artista;ruta;genero%}
-        buffer +=this->getNombre() + "{";
+        // NombrePLaylist{nombre;disco;artista;ruta;genero%nombre;disco;artista;ruta;genero%}Playlist2{nombre;disco;artista;ruta;genero%nombre;disco;artista;ruta;genero%}
+        //buffer +=this->getNombre() + "{";
 
-        for(int i = 0; i < canciones.size(); i++) {
-            SongInfo* cancion = dynamic_cast<SongInfo*>(canciones[i]);
-            if(cancion) {
-                string dato = cancion->getNombre() + ";" + cancion->getDisco() + ";" + cancion->getArtista() + ";" + cancion->getRuta() + ";" + cancion->getGenero();
-                buffer += dato + ":";
+        for(int i = 0; i < listaCanciones.size(); i++) {
+            PlayListInfo* pLista = dynamic_cast<PlayListInfo*>(listaCanciones[i]);
+            if(pLista) {
+                buffer += pLista->getNombre() + "{";
+                for (int i = 0; i < pLista->getCanciones().size(); ++i) {
+                    SongInfo* pCancion = dynamic_cast<SongInfo*>(pLista->getCanciones()[i]);
+
+                    string dato = pCancion->getNombre() + ";" + pCancion->getDisco() + ";" + pCancion->getArtista() + ";"
+                            + pCancion->getRuta() + ";" + pCancion->getGenero();
+                    buffer += dato + "%";
+                }
              }
+            buffer += "}";
         }
-        buffer += "}";
-
         file->write(buffer.data(),buffer.size());
         return true;
     }

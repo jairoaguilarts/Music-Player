@@ -27,6 +27,7 @@ SOURCES += main.cpp\
         Genero.cpp \
         GeneroFileV.cpp \
         PlayListFileV.cpp \
+        PlayListInfo.cpp \
         SongInfo.cpp \
         SongInfoFileV.cpp \
         TDAArchivo.cpp \
@@ -37,6 +38,7 @@ HEADERS  += \
     GeneroFileV.h \
     Object.h \
     PlayListFileV.h \
+    PlayListInfo.h \
     SongInfo.h \
     SongInfoFileV.h \
     TDAArchivo.h \

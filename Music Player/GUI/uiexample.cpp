@@ -21,14 +21,14 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
     //this->plfv = new PlayListFileV("/Users/marcellomenjivarmontesdeoca/Documents/Unitec/MusicPlayer/Music Player/GUI/Playlists.txt");
 
     //rutas windows Julio
-    //this->gfv = new GeneroFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Generos.txt");
-    //this->sifv = new SongInfoFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Canciones.txt");
-    //this->plfv = new PlayListFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Playlists.txt");
+    this->gfv = new GeneroFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Generos.txt");
+    this->sifv = new SongInfoFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Canciones.txt");
+    this->plfv = new PlayListFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Playlists.txt");
 
     //Rutas Windows Fran
-    this->gfv = new GeneroFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Generos.txt");
-    this->sifv = new SongInfoFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Canciones.txt");
-    this->plfv = new PlayListFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Playlists.txt");
+    //this->gfv = new GeneroFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Generos.txt");
+    //this->sifv = new SongInfoFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Canciones.txt");
+    //this->plfv = new PlayListFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Playlists.txt");
 
     crearVectores();
     cargarCanciones();
@@ -325,6 +325,7 @@ void UIExample::on_btnMute_clicked()
     }
 }
 
+//  !!!!!!!!!AQUIIIII!!!!!!!!!!!!!!!!
 void UIExample::on_btnCrearPlaylist_clicked()
 {
     //Agarra el nombre de la playlist
@@ -337,10 +338,14 @@ void UIExample::on_btnCrearPlaylist_clicked()
 
         //clear el UI y la ruta
         ui->lineNombrePlaylist->clear();
+        PlayListInfo *playList = new PlayListInfo(playlistName.toStdString());
 
         //Agrega a la tabla de playlists
         ui->tablaPlaylist->insertRow(ui->tablaPlaylist->rowCount());
         ui->tablaPlaylist->setItem(ui->tablaPlaylist->rowCount() - 1, 0, new QTableWidgetItem(playlistName));
+
+        this->pListas.push_back(playList);
+        this->plfv->agregarPlayList(playList);
 
         //aqui escribe la playlist
         plfv->escribir();

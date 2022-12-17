@@ -14,6 +14,7 @@
 #include <iostream>
 #include <vector>
 #include "Genero.h"
+#include "PlayListInfo.h"
 #include "SongInfo.h"
 #include "GeneroFileV.h"
 #include "SongInfoFileV.h"
@@ -65,6 +66,7 @@ private:
     QString ruta;
     vector<Genero*> generos;
     vector<SongInfo*> canciones;
+    vector<PlayListInfo*> pListas;
     GeneroFileV *gfv = nullptr;
     SongInfoFileV *sifv = nullptr;
     PlayListFileV *plfv = nullptr;
