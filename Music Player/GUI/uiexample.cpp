@@ -438,5 +438,8 @@ void UIExample::on_btnAgregarCancio_clicked()
     string mensaje(songSelected->getNombre() + " fue agregada a a la playlist: " + listaSelected->getNombre());
     msgBox.setText(mensaje.c_str());
     msgBox.exec();
+    plfv->abrir();
+    plfv->escribir();
+    plfv->cerrar();
 }
 
