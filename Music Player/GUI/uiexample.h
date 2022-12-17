@@ -57,6 +57,8 @@ private slots:
 
     void on_SeekSlider_sliderMoved(int position);
 
+    void on_bttnShowPlay_clicked();
+
 private:
 
     Ui::UIExample *ui;
