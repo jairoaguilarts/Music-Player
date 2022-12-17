@@ -76,7 +76,7 @@ private:
     enum RepeatFlags {None = 0, One = 1, All =2};
     bool ShuffleFlag;
     bool isPlayingFlag;
-    bool isPlayingPlaylist;
+    bool isPlayingPlaylist = false;
     int RepeatStat;
 
     QMediaPlayer *mPlayer;
