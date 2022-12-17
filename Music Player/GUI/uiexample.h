@@ -55,13 +55,9 @@ private slots:
     void on_btnCrearCancion_clicked();
     void on_btnCrearPlaylist_clicked();
     void on_btnCrearGenero_clicked();
-
     void on_SeekSlider_sliderMoved(int position);
-
     void on_bttnShowPlay_clicked();
-
     void on_bttnShowSongs_clicked();
-
     void on_btnAgregarCancio_clicked();
 
 private:
@@ -70,6 +66,7 @@ private:
     QString ruta;
     vector<Genero*> generos;
     vector<SongInfo*> canciones;
+    vector<SongInfo*> cancionesPlaylist;
     vector<PlayListInfo*> pListas;
     GeneroFileV *gfv = nullptr;
     SongInfoFileV *sifv = nullptr;
@@ -79,6 +76,7 @@ private:
     enum RepeatFlags {None = 0, One = 1, All =2};
     bool ShuffleFlag;
     bool isPlayingFlag;
+    bool isPlayingPlaylist;
     int RepeatStat;
 
     QMediaPlayer *mPlayer;

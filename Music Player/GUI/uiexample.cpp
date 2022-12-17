@@ -7,9 +7,9 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
 
     //Cambiar rutas
     //rutas mac jairo
-    //this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
-    //this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
-    //this->plfv = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Playlists.txt");
+    this->gfv = new GeneroFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Generos.txt");
+    this->sifv = new SongInfoFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Canciones.txt");
+    this->plfv = new PlayListFileV("/Users/jairoaguilar/Documents/Clases/2022\ Q4/Estructura\ de\ Datos\ II/Proyecto/Music\ Player/Music\ Player/GUI/Playlists.txt");
 
     //rutas linux shell0
     //this->gfv = new GeneroFileV("/home/shell0/Documents/MusicPlayer/Music Player/GUI/Generos.txt");
@@ -26,9 +26,9 @@ UIExample::UIExample(QWidget *parent):QMainWindow(parent), ui(new Ui::UIExample)
     //this->plfv = new PlayListFileV("C:/Users/jyahi/OneDrive/Escritorio/Codigo\ Estructura\ de\ Datos/Proyecto\ GUI/MusicPlayer/Music\ Player/GUI/Playlists.txt");
 
     //Rutas Windows Fran
-    this->gfv = new GeneroFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Generos.txt");
-    this->sifv = new SongInfoFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Canciones.txt");
-    this->plfv = new PlayListFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Playlists.txt");
+    //this->gfv = new GeneroFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Generos.txt");
+    //this->sifv = new SongInfoFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Canciones.txt");
+    //this->plfv = new PlayListFileV("C:/Users/JOSE\ VILLEDA/Documents/UNITEC/2022\ Q4/ESTRUCTRA\ DE\ DATOS\ II/New\ folder\ (6)/MusicPlayer/Music\ Player/GUI/Playlists.txt");
 
     crearVectores();
     cargarCanciones();
@@ -202,9 +202,16 @@ void UIExample::on_btnPlay_clicked()
     }
 
     ui->statusbar->showMessage("[+]Now Playing: " + ui->tablaCanciones->item(m_current_row, 0)->text(), 20*1000);
-    SongInfo *cancion = canciones[m_current_row];
-    mPlayer->setSource(QUrl::fromLocalFile(QString(cancion->getRuta().c_str())));
-    mPlayer->play();
+    if(!isPlayingPlaylist) {
+        SongInfo *cancion = canciones[m_current_row];
+        mPlayer->setSource(QUrl::fromLocalFile(QString(cancion->getRuta().c_str())));
+        mPlayer->play();
+    } else {
+        SongInfo *cancion = cancionesPlaylist[m_current_row];
+        mPlayer->setSource(QUrl::fromLocalFile(QString(cancion->getRuta().c_str())));
+        mPlayer->play();
+    }
+
 }
 
 void UIExample::ElapsedTime(qint64 x)
@@ -391,6 +398,14 @@ void UIExample::on_bttnShowPlay_clicked()
         ui->tablaPlaylist->selectRow(m_current_row);
     }
 
+    vector<Object*> tempCanciones = pListas[m_current_row]->getCanciones();
+    for(int i = 0; i < tempCanciones.size(); i++) {
+        SongInfo *cancion = dynamic_cast<SongInfo*>(tempCanciones[i]);
+        this->cancionesPlaylist.push_back(cancion);
+    }
+    tempCanciones.clear();
+    this->isPlayingPlaylist = true;
+
     PlayListInfo *listaSelected = pListas[m_current_row];
 
     ui->tablaCanciones->setRowCount(0);
@@ -406,6 +421,7 @@ void UIExample::on_bttnShowPlay_clicked()
 
 void UIExample::on_bttnShowSongs_clicked()
 {
+    this->isPlayingPlaylist = false;
     ui->tablaCanciones->setRowCount(0);
     cargarCanciones();
 }
